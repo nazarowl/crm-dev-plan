@@ -3,25 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRM Development Plan</title>
+    <title>CRM Roadmap</title>
     <style>
       :root {
-        color-scheme: light;
-        --bg: #f4efe6;
-        --panel: #fffdf8;
-        --panel-alt: #f8f3ea;
-        --text: #1f1a17;
-        --muted: #64584e;
-        --line: #dbcdbd;
-        --accent: #0b6e4f;
-        --accent-soft: #d8eee6;
-        --p0: #a12424;
-        --p0-bg: #fde7e7;
-        --p1: #8a5d00;
-        --p1-bg: #fff0cc;
-        --p2: #3c5f8f;
-        --p2-bg: #e5eefb;
-        --shadow: 0 12px 36px rgba(57, 41, 25, 0.08);
+        --bg: #f6f1e8;
+        --paper: rgba(255, 251, 245, 0.95);
+        --text: #1d1a17;
+        --muted: #6c6258;
+        --line: #ddd0bf;
+        --accent: #155e4b;
+        --accent-soft: #d8ece6;
+        --shadow: 0 18px 48px rgba(70, 50, 24, 0.1);
       }
 
       * {
@@ -31,31 +23,40 @@
       body {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
-        background:
-          radial-gradient(circle at top right, rgba(11, 110, 79, 0.08), transparent 28%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 28%, #f9f5ee 100%);
         color: var(--text);
-        line-height: 1.55;
+        background:
+          radial-gradient(circle at top right, rgba(21, 94, 75, 0.12), transparent 30%),
+          linear-gradient(180deg, #ede3d1 0%, var(--bg) 25%, #fbf7f1 100%);
+        line-height: 1.6;
       }
 
       .page {
-        width: min(1180px, calc(100% - 32px));
+        width: min(1080px, calc(100% - 28px));
         margin: 0 auto;
-        padding: 32px 0 72px;
+        padding: 28px 0 64px;
       }
 
       .hero,
       .card {
-        background: rgba(255, 253, 248, 0.9);
-        border: 1px solid rgba(219, 205, 189, 0.9);
+        background: var(--paper);
+        border: 1px solid rgba(221, 208, 191, 0.9);
         border-radius: 24px;
         box-shadow: var(--shadow);
-        backdrop-filter: blur(6px);
       }
 
       .hero {
-        padding: 32px;
-        margin-bottom: 24px;
+        padding: 30px;
+        margin-bottom: 22px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        padding: 22px;
       }
 
       .eyebrow {
@@ -64,218 +65,59 @@
         border-radius: 999px;
         background: var(--accent-soft);
         color: var(--accent);
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
         text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
         font-weight: 700;
       }
 
-      h1,
-      h2,
-      h3,
-      h4 {
-        margin: 0 0 12px;
+      h1, h2 {
+        margin: 0 0 10px;
         line-height: 1.15;
       }
 
       h1 {
-        margin-top: 16px;
-        font-size: clamp(2.3rem, 5vw, 4.2rem);
+        margin-top: 14px;
+        font-size: clamp(2.2rem, 5vw, 4rem);
       }
 
       h2 {
-        font-size: clamp(1.5rem, 2vw, 2rem);
-      }
-
-      h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
       p {
-        margin: 0 0 12px;
+        margin: 0 0 14px;
         color: var(--muted);
       }
 
-      .summary-grid,
-      .phase-grid,
-      .milestone-grid,
-      .epic-grid {
-        display: grid;
-        gap: 18px;
-      }
-
-      .summary-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        margin-top: 24px;
-      }
-
-      .summary-box {
-        padding: 18px;
-        background: var(--panel-alt);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-      }
-
-      .summary-box strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1.55rem;
-        color: var(--text);
-      }
-
-      .section {
-        margin-top: 24px;
-      }
-
-      .card {
-        padding: 24px;
-      }
-
-      .phase-grid,
-      .milestone-grid,
-      .epic-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .phase,
-      .milestone,
-      .epic {
-        padding: 22px;
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 20px;
-      }
-
-      .phase-header,
-      .milestone-header,
-      .epic-header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 12px;
-      }
-
-      .phase-number,
-      .milestone-number {
-        font-size: 0.84rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--accent);
-        font-weight: 700;
-      }
-
-      .stack {
-        display: grid;
-        gap: 14px;
-      }
-
-      ul {
-        margin: 8px 0 0 18px;
-        padding: 0;
-      }
-
-      li {
-        margin: 4px 0;
-      }
-
-      .task-list {
-        display: grid;
-        gap: 14px;
-        margin-top: 16px;
-      }
-
-      .task {
-        padding: 16px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: var(--panel-alt);
-      }
-
-      .task-top {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 8px;
-      }
-
-      .task-id {
-        font-weight: 700;
-        color: var(--text);
-      }
-
-      .pill {
+      a.button {
         display: inline-block;
-        padding: 4px 8px;
+        padding: 10px 14px;
         border-radius: 999px;
-        font-size: 0.8rem;
+        text-decoration: none;
+        color: white;
+        background: var(--accent);
         font-weight: 700;
-      }
-
-      .pill.p0 {
-        color: var(--p0);
-        background: var(--p0-bg);
-      }
-
-      .pill.p1 {
-        color: var(--p1);
-        background: var(--p1-bg);
-      }
-
-      .pill.p2 {
-        color: var(--p2);
-        background: var(--p2-bg);
       }
 
       .meta {
-        font-size: 0.92rem;
-        color: var(--muted);
-      }
-
-      .flow {
-        display: grid;
-        gap: 12px;
-      }
-
-      .flow-step {
-        padding: 14px 16px;
-        border-left: 4px solid var(--accent);
-        background: var(--panel-alt);
-        border-radius: 0 16px 16px 0;
-      }
-
-      .footer-note {
-        margin-top: 24px;
+        margin-top: 22px;
         padding: 18px;
         border: 1px dashed var(--line);
         border-radius: 18px;
-        background: rgba(248, 243, 234, 0.8);
-      }
-
-      code {
-        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        font-size: 0.92em;
+        background: rgba(248, 242, 232, 0.9);
       }
 
       @media (max-width: 720px) {
         .page {
-          width: min(100% - 20px, 1180px);
-          padding-top: 20px;
+          width: min(100% - 18px, 1080px);
+          padding-top: 18px;
         }
 
         .hero,
         .card {
-          padding: 20px;
+          padding: 18px;
           border-radius: 20px;
-        }
-
-        .phase,
-        .milestone,
-        .epic,
-        .task {
-          padding: 16px;
         }
       }
     </style>
@@ -284,451 +126,45 @@
     <main class="page">
       <section class="hero">
         <span class="eyebrow">CRM Roadmap</span>
-        <h1>Development Plan, Modules, and Task Breakdown</h1>
+        <h1>Piscines Aqua Plus CRM</h1>
         <p>
-          This page consolidates the roadmap from
-          <code>development-plan.md</code>, <code>milestones.md</code>, and
-          <code>task-backlog.md</code> into one browser-friendly view.
+          This roadmap set reflects the revised project reality: the CRM already exists on the VPS,
+          and the work is now to migrate, preserve, align, and extend that product until it matches
+          the final target.
         </p>
-
-        <div class="summary-grid">
-          <div class="summary-box">
-            <strong>6</strong>
-            Delivery phases
-          </div>
-          <div class="summary-box">
-            <strong>6</strong>
-            Release milestones
-          </div>
-          <div class="summary-box">
-            <strong>13</strong>
-            Epics / modules
-          </div>
-          <div class="summary-box">
-            <strong>45</strong>
-            Implementation tasks
-          </div>
-        </div>
       </section>
 
-      <section class="section card">
-        <h2>Planning Assumptions</h2>
-        <ul>
-          <li><code>apps/web</code> and <code>apps/api</code> are scaffold-only starting points.</li>
-          <li>The audited production CRM is the main behavioral reference.</li>
-          <li>The paperwork defines the final Aqua Plus alignment target.</li>
-          <li>Out of scope: full e-commerce, inventory, loyalty, partner promo codes, and recommendation tooling.</li>
-        </ul>
+      <section class="grid">
+        <article class="card">
+          <h2>Development Plan</h2>
+          <p>
+            High-level roadmap, planning assumptions, delivered baseline, remaining gaps, and phase
+            sequence.
+          </p>
+          <a class="button" href="./development-plan.html">Open Plan</a>
+        </article>
+
+        <article class="card">
+          <h2>Milestones</h2>
+          <p>
+            Release-oriented breakdown from baseline capture through cutover readiness.
+          </p>
+          <a class="button" href="./milestones.html">Open Milestones</a>
+        </article>
+
+        <article class="card">
+          <h2>Task Backlog</h2>
+          <p>
+            Epic-by-epic execution backlog with `CRM-001` through `CRM-032`.
+          </p>
+          <a class="button" href="./task-backlog.html">Open Backlog</a>
+        </article>
       </section>
 
-      <section class="section card">
-        <h2>Delivery Strategy</h2>
-        <div class="flow">
-          <div class="flow-step"><strong>1.</strong> Foundation and domain alignment</div>
-          <div class="flow-step"><strong>2.</strong> Core CRM parity</div>
-          <div class="flow-step"><strong>3.</strong> Aqua Plus workflow alignment</div>
-          <div class="flow-step"><strong>4.</strong> Automations and notifications</div>
-          <div class="flow-step"><strong>5.</strong> Public booking and scheduling</div>
-          <div class="flow-step"><strong>6.</strong> Invoicing and payment workflow</div>
-        </div>
-      </section>
-
-      <section class="section card">
-        <h2>Phases</h2>
-        <div class="phase-grid">
-          <article class="phase">
-            <div class="phase-header">
-              <div>
-                <div class="phase-number">Phase 1</div>
-                <h3>Foundation and Domain Alignment</h3>
-              </div>
-            </div>
-            <div class="stack">
-              <div>
-                <strong>Objectives</strong>
-                <ul>
-                  <li>Formalize backend stack and shared architecture.</li>
-                  <li>Define domain entities and relationships.</li>
-                  <li>Implement auth and permissions foundation.</li>
-                  <li>Create shared contracts, migrations, and configuration.</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Output</strong>
-                <p>Stable technical foundation, permission-aware shell, and an initial database schema.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="phase">
-            <div class="phase-header">
-              <div>
-                <div class="phase-number">Phase 2</div>
-                <h3>Core CRM Parity</h3>
-              </div>
-            </div>
-            <div class="stack">
-              <div>
-                <strong>Objectives</strong>
-                <ul>
-                  <li>Rebuild the audited CRM baseline in the new codebase.</li>
-                  <li>Preserve high-value operational behavior already in production.</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Output</strong>
-                <p>Usable internal CRM aligned closely enough to support migration planning.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="phase">
-            <div class="phase-header">
-              <div>
-                <div class="phase-number">Phase 3</div>
-                <h3>Aqua Plus Workflow Alignment</h3>
-              </div>
-            </div>
-            <div class="stack">
-              <div>
-                <strong>Objectives</strong>
-                <ul>
-                  <li>Align stages, categories, service taxonomy, and role naming.</li>
-                  <li>Make lead origin visible in workflow and reporting.</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Output</strong>
-                <p>CRM language and workflow reflect the actual Aqua Plus operating model.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="phase">
-            <div class="phase-header">
-              <div>
-                <div class="phase-number">Phase 4</div>
-                <h3>Automations and Notifications</h3>
-              </div>
-            </div>
-            <div class="stack">
-              <div>
-                <strong>Objectives</strong>
-                <ul>
-                  <li>Move the CRM beyond passive record-keeping.</li>
-                  <li>Add follow-ups, reminders, confirmations, and internal alerts.</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Output</strong>
-                <p>Automation-ready CRM with auditable notification behavior.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="phase">
-            <div class="phase-header">
-              <div>
-                <div class="phase-number">Phase 5</div>
-                <h3>Public Booking and Scheduling Integration</h3>
-              </div>
-            </div>
-            <div class="stack">
-              <div>
-                <strong>Objectives</strong>
-                <ul>
-                  <li>Connect customer booking to internal operations.</li>
-                  <li>Respect availability rules and synchronize with the internal calendar.</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Output</strong>
-                <p>Synchronized booking and internal scheduling.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="phase">
-            <div class="phase-header">
-              <div>
-                <div class="phase-number">Phase 6</div>
-                <h3>Invoicing and Payment Workflow</h3>
-              </div>
-            </div>
-            <div class="stack">
-              <div>
-                <strong>Objectives</strong>
-                <ul>
-                  <li>Complete the commercial lifecycle beyond quotes.</li>
-                  <li>Add invoice generation, payment schedules, statuses, and financial history.</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Output</strong>
-                <p>Quote-to-invoice-to-payment workflow inside the CRM.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section card">
-        <h2>Milestones</h2>
-        <div class="milestone-grid">
-          <article class="milestone">
-            <div class="milestone-header">
-              <div>
-                <div class="milestone-number">Milestone 1</div>
-                <h3>Foundation</h3>
-              </div>
-            </div>
-            <p>Real app structure replaces scaffold-only code. Auth, roles, permissions, shared types, and migrations are operational.</p>
-          </article>
-
-          <article class="milestone">
-            <div class="milestone-header">
-              <div>
-                <div class="milestone-number">Milestone 2</div>
-                <h3>Internal CRM MVP</h3>
-              </div>
-            </div>
-            <p>Staff can use leads, contacts, pipeline, activities, calendar, quotes, and admin tools for daily work.</p>
-          </article>
-
-          <article class="milestone">
-            <div class="milestone-header">
-              <div>
-                <div class="milestone-number">Milestone 3</div>
-                <h3>Aqua Plus Alignment</h3>
-              </div>
-            </div>
-            <p>Workflow language, service taxonomy, role profiles, and lead source tracking match the target business model.</p>
-          </article>
-
-          <article class="milestone">
-            <div class="milestone-header">
-              <div>
-                <div class="milestone-number">Milestone 4</div>
-                <h3>Automation Layer</h3>
-              </div>
-            </div>
-            <p>Lead replies, internal alerts, reminders, and follow-up sequences become traceable system behavior.</p>
-          </article>
-
-          <article class="milestone">
-            <div class="milestone-header">
-              <div>
-                <div class="milestone-number">Milestone 5</div>
-                <h3>Booking Integration</h3>
-              </div>
-            </div>
-            <p>Customer booking flows connect to staff calendars and internal CRM records.</p>
-          </article>
-
-          <article class="milestone">
-            <div class="milestone-header">
-              <div>
-                <div class="milestone-number">Milestone 6</div>
-                <h3>Billing Operations</h3>
-              </div>
-            </div>
-            <p>Invoices, payment schedules, statuses, and customer financial history are supported natively.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section card">
-        <h2>Epics and Tasks</h2>
-        <div class="epic-grid">
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 1: Project Foundation</h3>
-            </div>
-            <div class="task-list">
-              <div class="task">
-                <div class="task-top"><span class="task-id">CRM-001</span><span class="pill p0">P0</span></div>
-                <strong>Choose and lock the production stack</strong>
-                <div class="meta">Decide backend runtime, database, auth, storage, and background jobs. Document the platform choices.</div>
-              </div>
-              <div class="task">
-                <div class="task-top"><span class="task-id">CRM-002</span><span class="pill p0">P0</span></div>
-                <strong>Scaffold real app module structure</strong>
-                <div class="meta">Replace starter layout, introduce feature-based folders, and add <code>packages/types</code> and <code>packages/utils</code>.</div>
-              </div>
-              <div class="task">
-                <div class="task-top"><span class="task-id">CRM-003</span><span class="pill p0">P0</span></div>
-                <strong>Add environment and config baseline</strong>
-                <div class="meta">Define env strategy for local, staging, and production with validation and fail-fast startup rules.</div>
-              </div>
-              <div class="task">
-                <div class="task-top"><span class="task-id">CRM-004</span><span class="pill p0">P0</span></div>
-                <strong>Add migration and seed workflow</strong>
-                <div class="meta">Create repeatable migrations and seed base roles, permissions, and reference data.</div>
-              </div>
-              <div class="task">
-                <div class="task-top"><span class="task-id">CRM-005</span><span class="pill p1">P1</span></div>
-                <strong>Add observability baseline</strong>
-                <div class="meta">Add structured errors, request logging, and basic operational diagnostics.</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 2: Identity and Access</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-006</span><span class="pill p0">P0</span></div><strong>Implement authentication</strong><div class="meta">Sign-in flow, session handling, and protected application shell.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-007</span><span class="pill p0">P0</span></div><strong>Implement role and permission model</strong><div class="meta">Support role assignments, permission checks, and gated access across API and web.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-008</span><span class="pill p0">P0</span></div><strong>Build user and access administration</strong><div class="meta">Admins can list users, assign roles, and manage access settings.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 3: Core CRM Data Model</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-009</span><span class="pill p0">P0</span></div><strong>Implement service type reference model</strong><div class="meta">Create the Aqua Plus service taxonomy as shared reference data.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-010</span><span class="pill p0">P0</span></div><strong>Implement contact category model</strong><div class="meta">Support contact categorization for Aqua Plus workflows.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-011</span><span class="pill p0">P0</span></div><strong>Implement lead source model</strong><div class="meta">Store, expose, and query source attribution for inbound leads.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-012</span><span class="pill p0">P0</span></div><strong>Define and implement pipeline stage model</strong><div class="meta">Create centrally defined stages aligned to the target sales process.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 4: Leads and Contacts</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-013</span><span class="pill p0">P0</span></div><strong>Build lead CRUD and search</strong><div class="meta">Create, update, list, filter, search, and archive leads.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-014</span><span class="pill p0">P0</span></div><strong>Build contact views and dossier</strong><div class="meta">Show unified contact and client history relevant to each phase.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-015</span><span class="pill p0">P0</span></div><strong>Implement activity tracking</strong><div class="meta">Support activity creation and timeline history for leads and contacts.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 5: Pipeline</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-016</span><span class="pill p0">P0</span></div><strong>Build deal/opportunity model and CRUD</strong><div class="meta">Create opportunities linked to lead and customer context.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-017</span><span class="pill p0">P0</span></div><strong>Build pipeline board and stage transitions</strong><div class="meta">Make transitions auditable with board view, counts, and totals.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-018</span><span class="pill p1">P1</span></div><strong>Add owner assignment and next-step visibility</strong><div class="meta">Track seller ownership and pending next actions by record.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 6: Calendar and Internal Scheduling</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-019</span><span class="pill p0">P0</span></div><strong>Build internal calendar views</strong><div class="meta">Provide month and week calendar views for internal appointments and tasks.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-020</span><span class="pill p0">P0</span></div><strong>Build event and task management</strong><div class="meta">Create, edit, complete, and optionally link tasks/events to CRM records.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 7: Quotes / Soumissions</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-021</span><span class="pill p0">P0</span></div><strong>Build quote model and CRUD</strong><div class="meta">Support quotes, line items, totals, and notes.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-022</span><span class="pill p0">P0</span></div><strong>Build quote history in dossier</strong><div class="meta">Show quote history directly within the client record.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-023</span><span class="pill p1">P1</span></div><strong>Preserve quote document workflow</strong><div class="meta">Retain useful export and signature behavior if that workflow remains in scope.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 8: Aqua Plus Alignment</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-024</span><span class="pill p0">P0</span></div><strong>Align terminology and workflow labels</strong><div class="meta">Update visible CRM language across major modules.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-025</span><span class="pill p0">P0</span></div><strong>Align role profiles to actual operational users</strong><div class="meta">Map roles and permissions to real staff responsibilities.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-026</span><span class="pill p1">P1</span></div><strong>Surface lead source in workflow and reporting</strong><div class="meta">Expose source in list, detail, and summary views for operational filtering.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 9: Website Lead Integration</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-027</span><span class="pill p0">P0</span></div><strong>Build inbound website lead endpoint</strong><div class="meta">Accept website form submissions and create validated CRM lead records.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-028</span><span class="pill p1">P1</span></div><strong>Implement opportunity creation rules for inbound leads</strong><div class="meta">Automatically create opportunities where business rules require it.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 10: Automations and Notifications</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-029</span><span class="pill p0">P0</span></div><strong>Build message template system</strong><div class="meta">Store and select templates for automated responses and internal notifications.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-030</span><span class="pill p0">P0</span></div><strong>Implement automatic lead confirmation</strong><div class="meta">Send confirmation after qualifying inbound lead capture and record it in history.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-031</span><span class="pill p0">P0</span></div><strong>Implement internal lead alerts</strong><div class="meta">Notify staff when new leads arrive and keep delivery auditable.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-032</span><span class="pill p1">P1</span></div><strong>Implement stage-based follow-up sequences</strong><div class="meta">Run configurable reminders and follow-up logic by stage, status, or inactivity.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-033</span><span class="pill p1">P1</span></div><strong>Implement appointment and status notifications</strong><div class="meta">Notify users about appointments and important record status changes.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 11: Public Booking</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-034</span><span class="pill p0">P0</span></div><strong>Build seller availability model</strong><div class="meta">Represent availability rules in a structured model for booking validation.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-035</span><span class="pill p0">P0</span></div><strong>Build public booking flow</strong><div class="meta">Allow customers to submit valid appointment booking requests.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-036</span><span class="pill p0">P0</span></div><strong>Sync booking into internal calendar and CRM records</strong><div class="meta">Create internal scheduling entries and link the booking to CRM records.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-037</span><span class="pill p1">P1</span></div><strong>Notify staff of new or changed bookings</strong><div class="meta">Trigger booking-specific alerts for creation and major changes.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 12: Invoicing and Payments</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-038</span><span class="pill p0">P0</span></div><strong>Build invoice model and CRUD</strong><div class="meta">Support invoice creation and management from CRM data.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-039</span><span class="pill p0">P0</span></div><strong>Implement quote-to-invoice conversion</strong><div class="meta">Convert quotes into invoices while preserving key commercial data.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-040</span><span class="pill p0">P0</span></div><strong>Build payment schedule model</strong><div class="meta">Track milestones, schedules, and upcoming due dates.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-041</span><span class="pill p0">P0</span></div><strong>Build payment tracking</strong><div class="meta">Record payments and update invoice payment status accordingly.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-042</span><span class="pill p1">P1</span></div><strong>Expose financial history in client dossier</strong><div class="meta">Show quotes, invoices, and payments together in the customer record.</div></div>
-            </div>
-          </article>
-
-          <article class="epic">
-            <div class="epic-header">
-              <h3>Epic 13: Quality and Release Readiness</h3>
-            </div>
-            <div class="task-list">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-043</span><span class="pill p0">P0</span></div><strong>Add automated test baseline</strong><div class="meta">Add automated coverage for critical domain logic and auth paths.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-044</span><span class="pill p1">P1</span></div><strong>Add role-sensitive end-to-end smoke coverage</strong><div class="meta">Verify protected access and major workflows for key roles.</div></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-045</span><span class="pill p1">P1</span></div><strong>Prepare migration and cutover checklist</strong><div class="meta">Document cutover dependencies, data concerns, and rollback risks.</div></div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section card">
-        <h2>Recommended Execution Order</h2>
-        <div class="flow">
-          <div class="flow-step"><strong>Release A:</strong> <code>CRM-001</code> through <code>CRM-012</code></div>
-          <div class="flow-step"><strong>Release B:</strong> <code>CRM-013</code> through <code>CRM-023</code>, plus <code>CRM-043</code></div>
-          <div class="flow-step"><strong>Release C:</strong> <code>CRM-024</code> through <code>CRM-031</code></div>
-          <div class="flow-step"><strong>Release D:</strong> <code>CRM-032</code> through <code>CRM-037</code></div>
-          <div class="flow-step"><strong>Release E:</strong> <code>CRM-038</code> through <code>CRM-045</code></div>
-        </div>
-      </section>
-
-      <section class="section footer-note">
-        <strong>Planning note.</strong>
+      <section class="meta">
         <p>
-          The documented 115 to 150 hour estimate is only guidance and assumes an
-          existing CRM base. Because this repository currently contains scaffold
-          code rather than recovered production implementation, total effort may be
-          materially higher.
+          Source markdown lives alongside these pages in the same folder under
+          <code>docs/roadmap/</code>.
         </p>
       </section>
     </main>
