@@ -52,6 +52,13 @@
         backdrop-filter: blur(6px);
       }
 
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
       .hero {
         padding: 30px;
         margin-bottom: 22px;
@@ -209,6 +216,23 @@
         background: rgba(248, 242, 232, 0.9);
       }
 
+      a.nav-link {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--text);
+        background: rgba(255, 252, 247, 0.9);
+        border: 1px solid var(--line);
+        font-weight: 700;
+      }
+
+      a.nav-link.active {
+        color: white;
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
       .ordered {
         display: grid;
         gap: 10px;
@@ -248,6 +272,13 @@
   </head>
   <body>
     <main class="page">
+      <nav class="nav" aria-label="Roadmap navigation">
+        <a class="nav-link" href="./index.html">Roadmap Home</a>
+        <a class="nav-link active" href="./development-plan.html">Development Plan</a>
+        <a class="nav-link" href="./milestones.html">Milestones</a>
+        <a class="nav-link" href="./task-backlog.html">Task Backlog</a>
+      </nav>
+
       <section class="hero">
         <span class="eyebrow">Updated April 5, 2026</span>
         <h1>CRM Development Plan</h1>

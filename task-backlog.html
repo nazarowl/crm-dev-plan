@@ -53,6 +53,13 @@
         box-shadow: var(--shadow);
       }
 
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
       .hero,
       .panel {
         padding: 28px;
@@ -202,6 +209,23 @@
         background: rgba(255, 252, 247, 0.96);
       }
 
+      a.nav-link {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--text);
+        background: rgba(255, 252, 247, 0.9);
+        border: 1px solid var(--line);
+        font-weight: 700;
+      }
+
+      a.nav-link.active {
+        color: white;
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
       code {
         font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
         font-size: 0.92em;
@@ -222,6 +246,13 @@
   </head>
   <body>
     <main class="page">
+      <nav class="nav" aria-label="Roadmap navigation">
+        <a class="nav-link" href="./index.html">Roadmap Home</a>
+        <a class="nav-link" href="./development-plan.html">Development Plan</a>
+        <a class="nav-link" href="./milestones.html">Milestones</a>
+        <a class="nav-link active" href="./task-backlog.html">Task Backlog</a>
+      </nav>
+
       <section class="hero">
         <span class="eyebrow">Execution Backlog</span>
         <h1>CRM Task Backlog</h1>
