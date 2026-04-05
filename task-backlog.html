@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Task Backlog</title>
+    <style>
+      :root {
+        --bg: #f6f1e8;
+        --paper: rgba(255, 251, 245, 0.95);
+        --paper-strong: #fffdf9;
+        --text: #1d1a17;
+        --muted: #6c6258;
+        --line: #ddd0bf;
+        --accent: #155e4b;
+        --accent-soft: #d8ece6;
+        --p0: #8a2323;
+        --p0-bg: #f8dede;
+        --p1: #8f5a12;
+        --p1-bg: #f7e7c8;
+        --p2: #285d87;
+        --p2-bg: #dcecf8;
+        --shadow: 0 18px 48px rgba(70, 50, 24, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top right, rgba(21, 94, 75, 0.12), transparent 30%),
+          linear-gradient(180deg, #ede3d1 0%, var(--bg) 25%, #fbf7f1 100%);
+        line-height: 1.6;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 28px 0 64px;
+      }
+
+      .hero,
+      .panel,
+      .epic,
+      .task {
+        background: var(--paper);
+        border: 1px solid rgba(221, 208, 191, 0.9);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero,
+      .panel {
+        padding: 28px;
+      }
+
+      .hero {
+        margin-bottom: 22px;
+      }
+
+      .panel {
+        margin-top: 22px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+
+      h1, h2, h3 {
+        margin: 0 0 10px;
+        line-height: 1.15;
+      }
+
+      h1 {
+        margin-top: 14px;
+        font-size: clamp(2.1rem, 5vw, 3.8rem);
+      }
+
+      h2 {
+        font-size: clamp(1.45rem, 2vw, 1.95rem);
+      }
+
+      h3 {
+        font-size: 1.15rem;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+
+      .stats,
+      .epics,
+      .tasks {
+        display: grid;
+        gap: 16px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin-top: 22px;
+      }
+
+      .stat {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 253, 249, 0.88);
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 1.45rem;
+      }
+
+      .epic {
+        padding: 22px;
+      }
+
+      .epic-number {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .task {
+        padding: 16px;
+        border-radius: 18px;
+        background: var(--paper-strong);
+      }
+
+      .task-top {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+
+      .task-id {
+        font-weight: 700;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .p0 {
+        color: var(--p0);
+        background: var(--p0-bg);
+      }
+
+      .p1 {
+        color: var(--p1);
+        background: var(--p1-bg);
+      }
+
+      .p2 {
+        color: var(--p2);
+        background: var(--p2-bg);
+      }
+
+      ul {
+        margin: 8px 0 0 18px;
+        padding: 0;
+      }
+
+      li {
+        margin: 5px 0;
+      }
+
+      .release-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .release-list div {
+        padding: 12px 14px;
+        border-left: 4px solid var(--accent);
+        border-radius: 0 14px 14px 0;
+        background: rgba(255, 252, 247, 0.96);
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.92em;
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          width: min(100% - 18px, 1180px);
+          padding-top: 18px;
+        }
+
+        .hero, .panel, .epic, .task {
+          padding: 18px;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">Execution Backlog</span>
+        <h1>CRM Task Backlog</h1>
+        <p>
+          This backlog is built from the real CRM already deployed on the VPS. It prioritizes
+          baseline capture, migration, parity, Aqua Plus alignment, and the remaining missing
+          modules.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>8</strong>
+            Epics
+          </div>
+          <div class="stat">
+            <strong>32</strong>
+            Tasks
+          </div>
+          <div class="stat">
+            <strong>Critical Path</strong>
+            Migration first, then alignment, then net-new workflows.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Release Shape</h2>
+        <div class="release-list">
+          <div><strong>Release A:</strong> Baseline capture and migration strategy</div>
+          <div><strong>Release B:</strong> Repository adoption and parity</div>
+          <div><strong>Release C:</strong> Aqua Plus alignment and dossier foundation</div>
+          <div><strong>Release D:</strong> Intake and automation</div>
+          <div><strong>Release E:</strong> Booking integration</div>
+          <div><strong>Release F:</strong> Billing operations and cutover</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Epics and Tasks</h2>
+        <div class="epics">
+          <article class="epic">
+            <div class="epic-number">Epic 1</div>
+            <h3>Baseline Capture and Migration Strategy</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-001</span><span class="pill p0">P0</span></div><strong>Inventory the deployed CRM modules</strong><p>Confirm implemented modules, routes, hooks, storage use, and database-backed workflows in the VPS codebase.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-002</span><span class="pill p0">P0</span></div><strong>Map production data dependencies</strong><p>Document tables, enums, policies, RPCs, storage buckets, and notable side effects.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-003</span><span class="pill p0">P0</span></div><strong>Define the repository adoption strategy</strong><p>Decide how the VPS CRM becomes repo-managed code and preserve deployment constraints.</p></div>
+            </div>
+          </article>
+
+          <article class="epic">
+            <div class="epic-number">Epic 2</div>
+            <h3>Repository Adoption of Existing CRM</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-004</span><span class="pill p0">P0</span></div><strong>Replace scaffold assumptions with real application structure</strong><p>Restructure the repo around the real product instead of the placeholder scaffold.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-005</span><span class="pill p0">P0</span></div><strong>Migrate authentication and access control baseline</strong><p>Preserve auth, role checks, permission matrix behavior, and admin restrictions.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-006</span><span class="pill p0">P0</span></div><strong>Migrate current operational modules without regression</strong><p>Preserve dashboard, leads, activities, pipeline, contacts view, calendar, quotes, templates, settings, and admin modules.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-007</span><span class="pill p0">P0</span></div><strong>Preserve attachment, storage, and document workflows</strong><p>Keep lead attachments, deal attachments, signatures, logos, and quote PDF-related behavior working.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-008</span><span class="pill p0">P0</span></div><strong>Verify parity against the VPS CRM</strong><p>Compare migrated behavior to the deployed CRM and confirm critical baseline workflows before new scope starts.</p></div>
+            </div>
+          </article>
+
+          <article class="epic">
+            <div class="epic-number">Epic 3</div>
+            <h3>Aqua Plus Alignment</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-009</span><span class="pill p0">P0</span></div><strong>Align pipeline stages to Aqua Plus workflow</strong><p>Replace or transition the current stage model to the Aqua Plus target workflow.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-010</span><span class="pill p0">P0</span></div><strong>Align service taxonomy</strong><p>Replace the current generic service types with Aqua Plus-aligned service types.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-011</span><span class="pill p0">P0</span></div><strong>Add contact categorization</strong><p>Define and expose categories needed for Aqua Plus contact management.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-012</span><span class="pill p0">P0</span></div><strong>Align role profiles to real staff responsibilities</strong><p>Evolve the generic role model toward real operational profiles.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-013</span><span class="pill p0">P0</span></div><strong>Add lead source model and visibility</strong><p>Add source attribution to inbound leads and expose it in workflow views.</p></div>
+            </div>
+          </article>
+
+          <article class="epic">
+            <div class="epic-number">Epic 4</div>
+            <h3>Customer Record and Dossier</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-014</span><span class="pill p0">P0</span></div><strong>Decide the future contact model</strong><p>Choose whether contacts remain lead-derived or become a separate entity.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-015</span><span class="pill p0">P0</span></div><strong>Build unified client dossier</strong><p>Show one customer record across lead, activity, opportunity, calendar, and quote history.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-016</span><span class="pill p1">P1</span></div><strong>Expose cross-module commercial history</strong><p>Prepare the dossier to absorb invoices, payments, and bookings later.</p></div>
+            </div>
+          </article>
+
+          <article class="epic">
+            <div class="epic-number">Epic 5</div>
+            <h3>Website Intake and Automation</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-017</span><span class="pill p0">P0</span></div><strong>Build website lead ingestion</strong><p>Intake website form submissions into CRM lead records and retain source attribution.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-018</span><span class="pill p0">P0</span></div><strong>Implement automatic lead confirmations</strong><p>Send prospect confirmation messages after qualifying lead capture.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-019</span><span class="pill p0">P0</span></div><strong>Implement internal lead and status alerts</strong><p>Alert staff for new inbound leads and important status changes.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-020</span><span class="pill p1">P1</span></div><strong>Implement follow-up sequences and inactivity reminders</strong><p>Automate follow-up actions based on stage, time, or inactivity.</p></div>
+            </div>
+          </article>
+
+          <article class="epic">
+            <div class="epic-number">Epic 6</div>
+            <h3>Public Booking</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-021</span><span class="pill p0">P0</span></div><strong>Model seller availability</strong><p>Define availability rules that public booking can validate against.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-022</span><span class="pill p0">P0</span></div><strong>Build public booking flow</strong><p>Allow customers to request or book appointments through a public interface.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-023</span><span class="pill p0">P0</span></div><strong>Sync bookings into CRM and internal calendar</strong><p>Create internal scheduling records and connect bookings to customer records.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-024</span><span class="pill p1">P1</span></div><strong>Notify staff about new or changed bookings</strong><p>Add booking-related notifications.</p></div>
+            </div>
+          </article>
+
+          <article class="epic">
+            <div class="epic-number">Epic 7</div>
+            <h3>Billing Operations</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-025</span><span class="pill p0">P0</span></div><strong>Build invoice model and interfaces</strong><p>Introduce invoice entities and user workflows.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-026</span><span class="pill p0">P0</span></div><strong>Implement quote-to-invoice conversion</strong><p>Create invoices from existing quote data.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-027</span><span class="pill p0">P0</span></div><strong>Add payment obligations and schedules</strong><p>Move from quote-only payment planning toward invoice payment obligations.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-028</span><span class="pill p0">P0</span></div><strong>Add payment tracking</strong><p>Record payments and compute payment state.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-029</span><span class="pill p1">P1</span></div><strong>Expose financial history in the client dossier</strong><p>Show quote, invoice, and payment history together in the customer record.</p></div>
+            </div>
+          </article>
+
+          <article class="epic">
+            <div class="epic-number">Epic 8</div>
+            <h3>Quality, Cutover, and Release Readiness</h3>
+            <div class="tasks">
+              <div class="task"><div class="task-top"><span class="task-id">CRM-030</span><span class="pill p0">P0</span></div><strong>Add automated baseline coverage</strong><p>Cover auth and critical domain logic with automated tests.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-031</span><span class="pill p1">P1</span></div><strong>Add role-sensitive end-to-end smoke coverage</strong><p>Verify core workflows for relevant permission profiles.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-032</span><span class="pill p1">P1</span></div><strong>Prepare data migration and cutover checklist</strong><p>Document cutover, rollback, storage, and data migration concerns.</p></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>

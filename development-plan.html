@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Development Plan</title>
+    <style>
+      :root {
+        --bg: #f6f1e8;
+        --paper: rgba(255, 251, 245, 0.95);
+        --paper-strong: #fffdf9;
+        --text: #1d1a17;
+        --muted: #6c6258;
+        --line: #ddd0bf;
+        --accent: #155e4b;
+        --accent-soft: #d8ece6;
+        --warning: #8f5a12;
+        --warning-soft: #f7e7c8;
+        --good: #235f2e;
+        --good-soft: #ddf0df;
+        --gap: #8a2323;
+        --gap-soft: #f7dddd;
+        --shadow: 0 18px 48px rgba(70, 50, 24, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top right, rgba(21, 94, 75, 0.12), transparent 30%),
+          linear-gradient(180deg, #ede3d1 0%, var(--bg) 25%, #fbf7f1 100%);
+        line-height: 1.6;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 28px 0 64px;
+      }
+
+      .hero,
+      .panel {
+        background: var(--paper);
+        border: 1px solid rgba(221, 208, 191, 0.9);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(6px);
+      }
+
+      .hero {
+        padding: 30px;
+        margin-bottom: 22px;
+      }
+
+      .panel {
+        padding: 24px;
+        margin-top: 22px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 10px;
+        line-height: 1.15;
+      }
+
+      h1 {
+        margin-top: 14px;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+      }
+
+      h2 {
+        font-size: clamp(1.45rem, 2vw, 1.95rem);
+      }
+
+      h3 {
+        font-size: 1.15rem;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+
+      .stats,
+      .triage,
+      .phases {
+        display: grid;
+        gap: 16px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin-top: 22px;
+      }
+
+      .stat {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 253, 249, 0.88);
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 1.5rem;
+        color: var(--text);
+      }
+
+      .triage {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .triage-card,
+      .phase {
+        padding: 20px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: var(--paper-strong);
+      }
+
+      .triage-card.good {
+        background: linear-gradient(180deg, rgba(221, 240, 223, 0.7), rgba(255, 253, 249, 0.96));
+      }
+
+      .triage-card.partial {
+        background: linear-gradient(180deg, rgba(247, 231, 200, 0.72), rgba(255, 253, 249, 0.96));
+      }
+
+      .triage-card.gap {
+        background: linear-gradient(180deg, rgba(247, 221, 221, 0.72), rgba(255, 253, 249, 0.96));
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 4px 9px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .tag.good {
+        color: var(--good);
+        background: var(--good-soft);
+      }
+
+      .tag.partial {
+        color: var(--warning);
+        background: var(--warning-soft);
+      }
+
+      .tag.gap {
+        color: var(--gap);
+        background: var(--gap-soft);
+      }
+
+      ul {
+        margin: 8px 0 0 18px;
+        padding: 0;
+      }
+
+      li {
+        margin: 5px 0;
+      }
+
+      .phase {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .phase-number {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .phase p,
+      .phase li {
+        color: var(--muted);
+      }
+
+      .callout {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px dashed var(--line);
+        background: rgba(248, 242, 232, 0.9);
+      }
+
+      .ordered {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .ordered div {
+        padding: 12px 14px;
+        border-left: 4px solid var(--accent);
+        background: rgba(255, 252, 247, 0.95);
+        border-radius: 0 14px 14px 0;
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.92em;
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          width: min(100% - 18px, 1120px);
+          padding-top: 18px;
+        }
+
+        .hero,
+        .panel {
+          padding: 18px;
+          border-radius: 20px;
+        }
+
+        .triage-card,
+        .phase {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">Updated April 5, 2026</span>
+        <h1>CRM Development Plan</h1>
+        <p>
+          This plan replaces the old scaffold-first roadmap. The real starting point is the
+          deployed CRM already running on the VPS, and the job is now to preserve, migrate,
+          align, and extend that product until it matches the final Aqua Plus target.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>Live Product</strong>
+            React + Vite + Supabase CRM already exists on the VPS at <code>/var/www/crm</code>.
+          </div>
+          <div class="stat">
+            <strong>Local Repo</strong>
+            The current <code>apps/web</code> and <code>apps/api</code> remain scaffold-level only.
+          </div>
+          <div class="stat">
+            <strong>Main Task</strong>
+            Stop planning like a blank-slate build. Plan from the real shipped system.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Planning Baseline</h2>
+        <p>
+          The final target is defined in <code>docs/product/final-crm-spec.md</code>. The
+          implementation baseline is the deployed CRM inspected on the VPS, not the scaffold in
+          this repository.
+        </p>
+        <ul>
+          <li>Use the deployed CRM as the functional reference.</li>
+          <li>Preserve useful working behavior before broadening scope.</li>
+          <li>Keep excluded items out of scope: e-commerce, inventory, loyalty, promo codes, and recommendation tooling.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Reality Check</h2>
+        <div class="triage">
+          <article class="triage-card good">
+            <div class="tag good">Already Implemented</div>
+            <h3>Operational Today</h3>
+            <ul>
+              <li>Authentication</li>
+              <li>Roles and permissions</li>
+              <li>Dashboard</li>
+              <li>Leads and activities</li>
+              <li>Pipeline</li>
+              <li>Contacts view</li>
+              <li>Internal calendar</li>
+              <li>Quotes with templates, PDF, signatures, taxes, and payment schedules</li>
+              <li>Company settings and admin user management</li>
+            </ul>
+          </article>
+
+          <article class="triage-card partial">
+            <div class="tag partial">Partially Done</div>
+            <h3>Needs Alignment</h3>
+            <ul>
+              <li>Pipeline stages are not yet the final Aqua Plus workflow.</li>
+              <li>Service taxonomy is still generic.</li>
+              <li>Contacts are still lead-derived rather than a deliberate customer model.</li>
+              <li>Role model is still generic: <code>owner</code>, <code>admin</code>, <code>user</code>.</li>
+              <li>Quote payment schedules exist, but true billing operations do not.</li>
+            </ul>
+          </article>
+
+          <article class="triage-card gap">
+            <div class="tag gap">Still Missing</div>
+            <h3>Not Built Yet</h3>
+            <ul>
+              <li>Website lead intake</li>
+              <li>Lead source tracking</li>
+              <li>Automations and notifications</li>
+              <li>Public booking with seller availability</li>
+              <li>Invoice generation and invoice records</li>
+              <li>Payment tracking beyond quote planning</li>
+              <li>Unified client dossier across the full lifecycle</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Delivery Strategy</h2>
+        <div class="ordered">
+          <div><strong>1.</strong> Capture and stabilize the real existing product baseline.</div>
+          <div><strong>2.</strong> Bring that baseline into this repository without regression.</div>
+          <div><strong>3.</strong> Align the existing modules to Aqua Plus terminology and workflow.</div>
+          <div><strong>4.</strong> Add the missing operational modules.</div>
+          <div><strong>5.</strong> Harden, cut over, and run the system from this repository.</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Phases</h2>
+        <div class="phases">
+          <article class="phase">
+            <div class="phase-number">Phase 1</div>
+            <h3>Product Baseline Capture and Repository Alignment</h3>
+            <p>
+              Treat the VPS CRM as the real source product. Document its modules, data model,
+              Supabase dependencies, and deployment constraints, then define how that product
+              becomes repo-managed code instead of a separate server-side codebase.
+            </p>
+          </article>
+
+          <article class="phase">
+            <div class="phase-number">Phase 2</div>
+            <h3>Core Product Migration Without Regression</h3>
+            <p>
+              Import or reproduce the deployed CRM inside this repo and preserve the current
+              working modules: auth, roles, permissions, leads, activities, pipeline, calendar,
+              quotes, templates, settings, attachments, and admin behavior.
+            </p>
+          </article>
+
+          <article class="phase">
+            <div class="phase-number">Phase 3</div>
+            <h3>Aqua Plus Workflow Alignment</h3>
+            <p>
+              Replace the current generic CRM language with the real Aqua Plus operating model:
+              stages, service types, contact categorization, role profiles, and lead source
+              visibility.
+            </p>
+          </article>
+
+          <article class="phase">
+            <div class="phase-number">Phase 4</div>
+            <h3>Customer Record and Dossier Consolidation</h3>
+            <p>
+              Resolve the current lead-versus-contact ambiguity and build a unified customer record
+              that can hold long-term commercial history across opportunities, activities, quotes,
+              bookings, invoices, and payments.
+            </p>
+          </article>
+
+          <article class="phase">
+            <div class="phase-number">Phase 5</div>
+            <h3>Website Intake, Automations, and Notifications</h3>
+            <p>
+              Add website lead capture, source attribution, automatic confirmations, internal lead
+              alerts, status notifications, and stage or inactivity-based follow-up logic.
+            </p>
+          </article>
+
+          <article class="phase">
+            <div class="phase-number">Phase 6</div>
+            <h3>Public Booking and Scheduling Integration</h3>
+            <p>
+              Add seller availability, public booking, booking validation, internal calendar sync,
+              CRM record linking, and staff booking notifications.
+            </p>
+          </article>
+
+          <article class="phase">
+            <div class="phase-number">Phase 7</div>
+            <h3>Invoicing and Payment Operations</h3>
+            <p>
+              Extend the existing quote engine into a complete billing workflow with invoice
+              generation, quote-to-invoice conversion, payment obligations, payment records, and
+              due-date visibility from the customer dossier.
+            </p>
+          </article>
+
+          <article class="phase">
+            <div class="phase-number">Phase 8</div>
+            <h3>Release Hardening and Cutover</h3>
+            <p>
+              Add automated verification, migration checks, rollback planning, and deployment
+              documentation so the production CRM can be managed from this repository with a
+              credible release path.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Main Risks</h2>
+        <ul>
+          <li>The old roadmap overstates greenfield work and understates migration work.</li>
+          <li>Quotes are one of the highest-risk areas because they combine calculations, templates, PDFs, signatures, settings, and storage.</li>
+          <li>The customer/contact model needs an explicit decision before billing and booking expand further.</li>
+          <li>Changing stages and roles too early can create operational churn during migration.</li>
+          <li>Automations should not ship until event ownership and audit behavior are clear.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Exit Criteria</h2>
+        <div class="callout">
+          <ul>
+            <li>The repository is based on the real production CRM rather than the scaffold.</li>
+            <li>Current implemented modules are preserved without regression.</li>
+            <li>Aqua Plus terminology, stages, services, and role profiles are reflected in the product.</li>
+            <li>Website-originated leads enter CRM workflows automatically.</li>
+            <li>Notifications and follow-up automations are operational and auditable.</li>
+            <li>Public booking and internal scheduling are synchronized.</li>
+            <li>Invoices and payment tracking are visible from the client dossier.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>

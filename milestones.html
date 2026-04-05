@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Milestones</title>
+    <style>
+      :root {
+        --bg: #f6f1e8;
+        --paper: rgba(255, 251, 245, 0.95);
+        --paper-strong: #fffdf9;
+        --text: #1d1a17;
+        --muted: #6c6258;
+        --line: #ddd0bf;
+        --accent: #155e4b;
+        --accent-soft: #d8ece6;
+        --shadow: 0 18px 48px rgba(70, 50, 24, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top right, rgba(21, 94, 75, 0.12), transparent 30%),
+          linear-gradient(180deg, #ede3d1 0%, var(--bg) 25%, #fbf7f1 100%);
+        line-height: 1.6;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 28px 0 64px;
+      }
+
+      .hero,
+      .panel,
+      .milestone {
+        background: var(--paper);
+        border: 1px solid rgba(221, 208, 191, 0.9);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero,
+      .panel {
+        padding: 28px;
+      }
+
+      .hero {
+        margin-bottom: 22px;
+      }
+
+      .panel {
+        margin-top: 22px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+
+      h1, h2, h3 {
+        margin: 0 0 10px;
+        line-height: 1.15;
+      }
+
+      h1 {
+        margin-top: 14px;
+        font-size: clamp(2.1rem, 5vw, 3.8rem);
+      }
+
+      h2 {
+        font-size: clamp(1.45rem, 2vw, 1.95rem);
+      }
+
+      h3 {
+        font-size: 1.15rem;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 8px 0 0 18px;
+        padding: 0;
+      }
+
+      li {
+        margin: 5px 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .milestone {
+        padding: 22px;
+      }
+
+      .number {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .release-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .release-list div {
+        padding: 12px 14px;
+        border-left: 4px solid var(--accent);
+        border-radius: 0 14px 14px 0;
+        background: rgba(255, 252, 247, 0.96);
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          width: min(100% - 18px, 1120px);
+          padding-top: 18px;
+        }
+
+        .hero, .panel, .milestone {
+          padding: 18px;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">Roadmap</span>
+        <h1>CRM Milestones</h1>
+        <p>
+          These milestones reflect the revised roadmap: start from the real CRM already running on
+          the VPS, bring that product under repository control, then align and extend it toward the
+          final Aqua Plus target.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Milestone Sequence</h2>
+        <div class="grid">
+          <article class="milestone">
+            <div class="number">Milestone 1</div>
+            <h3>Production Baseline Captured</h3>
+            <p>The VPS CRM is treated as the real baseline and its modules, data structures, storage dependencies, and auth behavior are documented.</p>
+            <strong>Definition of done</strong>
+            <ul>
+              <li>Current VPS modules are inventoried and confirmed.</li>
+              <li>Major tables, policies, RPCs, and storage buckets are mapped.</li>
+              <li>Migration assumptions are documented.</li>
+            </ul>
+          </article>
+
+          <article class="milestone">
+            <div class="number">Milestone 2</div>
+            <h3>Repository Owns the Current CRM</h3>
+            <p>The real CRM baseline is moved into this repository or faithfully reproduced from it without material regression.</p>
+            <strong>Included modules</strong>
+            <ul>
+              <li>Authentication, roles, permissions, dashboard, leads, activities, pipeline</li>
+              <li>Contacts view, calendar, quotes, templates, settings, and admin</li>
+            </ul>
+          </article>
+
+          <article class="milestone">
+            <div class="number">Milestone 3</div>
+            <h3>Aqua Plus Alignment</h3>
+            <p>The CRM reflects Aqua Plus terminology, service taxonomy, stage model, staff profiles, and lead source handling.</p>
+          </article>
+
+          <article class="milestone">
+            <div class="number">Milestone 4</div>
+            <h3>Customer Dossier</h3>
+            <p>The product moves beyond isolated module records into one coherent client history spanning the operational lifecycle.</p>
+          </article>
+
+          <article class="milestone">
+            <div class="number">Milestone 5</div>
+            <h3>Intake and Automation Layer</h3>
+            <p>Website-originated work enters the CRM automatically and triggers confirmations, internal alerts, and follow-up support behavior.</p>
+          </article>
+
+          <article class="milestone">
+            <div class="number">Milestone 6</div>
+            <h3>Booking Integration</h3>
+            <p>Public booking is connected to seller availability, internal scheduling, and customer records.</p>
+          </article>
+
+          <article class="milestone">
+            <div class="number">Milestone 7</div>
+            <h3>Billing Operations</h3>
+            <p>Invoices, quote-to-invoice conversion, payment obligations, payment tracking, and financial history become part of the CRM.</p>
+          </article>
+
+          <article class="milestone">
+            <div class="number">Milestone 8</div>
+            <h3>Cutover Readiness</h3>
+            <p>The migrated and extended CRM is release-ready from this repository with verification, migration validation, and rollback planning.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Recommended Release Order</h2>
+        <div class="release-list">
+          <div><strong>1.</strong> Production baseline captured</div>
+          <div><strong>2.</strong> Repository owns the current CRM</div>
+          <div><strong>3.</strong> Aqua Plus alignment</div>
+          <div><strong>4.</strong> Customer dossier</div>
+          <div><strong>5.</strong> Intake and automation layer</div>
+          <div><strong>6.</strong> Booking integration</div>
+          <div><strong>7.</strong> Billing operations</div>
+          <div><strong>8.</strong> Cutover readiness</div>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
