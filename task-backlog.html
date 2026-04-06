@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRM Task Backlog</title>
+    <title>Carnet de commandes CRM</title>
     <style>
       :root {
         --bg: #f6f1e8;
@@ -246,138 +246,138 @@
   </head>
   <body>
     <main class="page">
-      <nav class="nav" aria-label="Roadmap navigation">
-        <a class="nav-link" href="./index.html">Roadmap Home</a>
-        <a class="nav-link" href="./development-plan.html">Development Plan</a>
-        <a class="nav-link" href="./milestones.html">Milestones</a>
-        <a class="nav-link active" href="./task-backlog.html">Task Backlog</a>
+      <nav class="nav" aria-label="Navigation de la feuille de route">
+        <a class="nav-link" href="./index.html">Accueil</a>
+        <a class="nav-link" href="./development-plan.html">Plan de développement</a>
+        <a class="nav-link" href="./milestones.html">Jalons</a>
+        <a class="nav-link active" href="./task-backlog.html">Carnet de commandes</a>
       </nav>
 
       <section class="hero">
-        <span class="eyebrow">Execution Backlog</span>
-        <h1>CRM Task Backlog</h1>
+        <span class="eyebrow">Carnet d'exécution</span>
+        <h1>Carnet de commandes CRM</h1>
         <p>
-          This backlog is built from the real CRM already deployed on the VPS. It prioritizes
-          baseline capture, migration, parity, Aqua Plus alignment, and the remaining missing
-          modules.
+          Ce carnet est construit à partir du vrai CRM déjà déployé sur le VPS. Il priorise
+          la capture de la référence, la migration, la vérification de parité, l'alignement Aqua Plus et les
+          modules manquants restants.
         </p>
 
         <div class="stats">
           <div class="stat">
             <strong>8</strong>
-            Epics
+            Épics
           </div>
           <div class="stat">
             <strong>32</strong>
-            Tasks
+            Tâches
           </div>
           <div class="stat">
-            <strong>Critical Path</strong>
-            Migration first, then alignment, then net-new workflows.
+            <strong>Chemin critique</strong>
+            Migration d'abord, puis alignement, puis les nouveaux flux.
           </div>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Release Shape</h2>
+        <h2>Structure des livraisons</h2>
         <div class="release-list">
-          <div><strong>Release A:</strong> Baseline capture and migration strategy</div>
-          <div><strong>Release B:</strong> Repository adoption and parity</div>
-          <div><strong>Release C:</strong> Aqua Plus alignment and dossier foundation</div>
-          <div><strong>Release D:</strong> Intake and automation</div>
-          <div><strong>Release E:</strong> Booking integration</div>
-          <div><strong>Release F:</strong> Billing operations and cutover</div>
+          <div><strong>Livraison A :</strong> Capture de la référence et stratégie de migration</div>
+          <div><strong>Livraison B :</strong> Adoption du dépôt et vérification de la parité</div>
+          <div><strong>Livraison C :</strong> Alignement Aqua Plus et fondation du dossier client</div>
+          <div><strong>Livraison D :</strong> Intégration et automatisation</div>
+          <div><strong>Livraison E :</strong> Intégration de la prise de rendez-vous</div>
+          <div><strong>Livraison F :</strong> Opérations de facturation et bascule</div>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Epics and Tasks</h2>
+        <h2>Épics et tâches</h2>
         <div class="epics">
           <article class="epic">
-            <div class="epic-number">Epic 1</div>
-            <h3>Baseline Capture and Migration Strategy</h3>
+            <div class="epic-number">Épic 1</div>
+            <h3>Capture de la référence et stratégie de migration</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-001</span><span class="pill p0">P0</span></div><strong>Inventory the deployed CRM modules</strong><p>Confirm implemented modules, routes, hooks, storage use, and database-backed workflows in the VPS codebase.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-002</span><span class="pill p0">P0</span></div><strong>Map production data dependencies</strong><p>Document tables, enums, policies, RPCs, storage buckets, and notable side effects.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-003</span><span class="pill p0">P0</span></div><strong>Define the repository adoption strategy</strong><p>Decide how the VPS CRM becomes repo-managed code and preserve deployment constraints.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-001</span><span class="pill p0">P0</span></div><strong>Inventorier les modules du CRM déployé</strong><p>Confirmer les modules implémentés, les routes, les hooks, l'utilisation du stockage et les flux appuyés par la base de données dans la base de code du VPS.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-002</span><span class="pill p0">P0</span></div><strong>Cartographier les dépendances des données de production</strong><p>Documenter les tables, énumérations, politiques, RPCs, buckets de stockage et effets de bord notables.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-003</span><span class="pill p0">P0</span></div><strong>Définir la stratégie d'adoption du dépôt</strong><p>Décider comment le CRM du VPS devient du code géré par le dépôt et préserver les contraintes de déploiement.</p></div>
             </div>
           </article>
 
           <article class="epic">
-            <div class="epic-number">Epic 2</div>
-            <h3>Repository Adoption of Existing CRM</h3>
+            <div class="epic-number">Épic 2</div>
+            <h3>Adoption du CRM existant dans le dépôt</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-004</span><span class="pill p0">P0</span></div><strong>Replace scaffold assumptions with real application structure</strong><p>Restructure the repo around the real product instead of the placeholder scaffold.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-005</span><span class="pill p0">P0</span></div><strong>Migrate authentication and access control baseline</strong><p>Preserve auth, role checks, permission matrix behavior, and admin restrictions.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-006</span><span class="pill p0">P0</span></div><strong>Migrate current operational modules without regression</strong><p>Preserve dashboard, leads, activities, pipeline, contacts view, calendar, quotes, templates, settings, and admin modules.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-007</span><span class="pill p0">P0</span></div><strong>Preserve attachment, storage, and document workflows</strong><p>Keep lead attachments, deal attachments, signatures, logos, and quote PDF-related behavior working.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-008</span><span class="pill p0">P0</span></div><strong>Verify parity against the VPS CRM</strong><p>Compare migrated behavior to the deployed CRM and confirm critical baseline workflows before new scope starts.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-004</span><span class="pill p0">P0</span></div><strong>Remplacer les hypothèses du squelette par la vraie structure applicative</strong><p>Restructurer le dépôt autour du vrai produit plutôt que du squelette de remplacement.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-005</span><span class="pill p0">P0</span></div><strong>Migrer la référence d'authentification et de contrôle d'accès</strong><p>Préserver l'authentification, les vérifications de rôles, le comportement de la matrice de permissions et les restrictions d'administration.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-006</span><span class="pill p0">P0</span></div><strong>Migrer les modules opérationnels actuels sans régression</strong><p>Préserver le tableau de bord, les prospects, les activités, le pipeline, la vue contacts, le calendrier, les devis, les modèles, les paramètres et les modules d'administration.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-007</span><span class="pill p0">P0</span></div><strong>Préserver les flux de pièces jointes, de stockage et de documents</strong><p>Conserver les pièces jointes des prospects, les signatures, les logos et le comportement lié aux PDF des devis.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-008</span><span class="pill p0">P0</span></div><strong>Vérifier la parité par rapport au CRM du VPS</strong><p>Comparer le comportement migré au CRM déployé et confirmer les flux de référence critiques avant le démarrage d'un nouveau périmètre.</p></div>
             </div>
           </article>
 
           <article class="epic">
-            <div class="epic-number">Epic 3</div>
-            <h3>Aqua Plus Alignment</h3>
+            <div class="epic-number">Épic 3</div>
+            <h3>Alignement Aqua Plus</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-009</span><span class="pill p0">P0</span></div><strong>Align pipeline stages to Aqua Plus workflow</strong><p>Replace or transition the current stage model to the Aqua Plus target workflow.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-010</span><span class="pill p0">P0</span></div><strong>Align service taxonomy</strong><p>Replace the current generic service types with Aqua Plus-aligned service types.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-011</span><span class="pill p0">P0</span></div><strong>Add contact categorization</strong><p>Define and expose categories needed for Aqua Plus contact management.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-012</span><span class="pill p0">P0</span></div><strong>Align role profiles to real staff responsibilities</strong><p>Evolve the generic role model toward real operational profiles.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-013</span><span class="pill p0">P0</span></div><strong>Add lead source model and visibility</strong><p>Add source attribution to inbound leads and expose it in workflow views.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-009</span><span class="pill p0">P0</span></div><strong>Aligner les étapes du pipeline sur le flux de travail Aqua Plus</strong><p>Remplacer ou faire évoluer le modèle d'étapes actuel vers le flux de travail cible d'Aqua Plus.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-010</span><span class="pill p0">P0</span></div><strong>Aligner la taxonomie des services</strong><p>Remplacer les types de services génériques actuels par des types de services alignés sur Aqua Plus.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-011</span><span class="pill p0">P0</span></div><strong>Ajouter la catégorisation des contacts</strong><p>Définir et exposer les catégories nécessaires à la gestion des contacts Aqua Plus.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-012</span><span class="pill p0">P0</span></div><strong>Aligner les profils de rôles sur les vraies responsabilités du personnel</strong><p>Faire évoluer le modèle de rôles générique vers de vrais profils opérationnels.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-013</span><span class="pill p0">P0</span></div><strong>Ajouter le modèle de source des prospects et la visibilité</strong><p>Ajouter l'attribution de la source aux prospects entrants et l'exposer dans les vues de flux de travail.</p></div>
             </div>
           </article>
 
           <article class="epic">
-            <div class="epic-number">Epic 4</div>
-            <h3>Customer Record and Dossier</h3>
+            <div class="epic-number">Épic 4</div>
+            <h3>Dossier et enregistrement client</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-014</span><span class="pill p0">P0</span></div><strong>Decide the future contact model</strong><p>Choose whether contacts remain lead-derived or become a separate entity.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-015</span><span class="pill p0">P0</span></div><strong>Build unified client dossier</strong><p>Show one customer record across lead, activity, opportunity, calendar, and quote history.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-016</span><span class="pill p1">P1</span></div><strong>Expose cross-module commercial history</strong><p>Prepare the dossier to absorb invoices, payments, and bookings later.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-014</span><span class="pill p0">P0</span></div><strong>Décider du futur modèle de contacts</strong><p>Choisir si les contacts restent dérivés des prospects ou deviennent une entité séparée.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-015</span><span class="pill p0">P0</span></div><strong>Construire le dossier client unifié</strong><p>Afficher un enregistrement client unique couvrant l'historique des prospects, activités, opportunités, calendrier et devis.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-016</span><span class="pill p1">P1</span></div><strong>Exposer l'historique commercial inter-modules</strong><p>Préparer le dossier pour absorber les factures, paiements et rendez-vous ultérieurement.</p></div>
             </div>
           </article>
 
           <article class="epic">
-            <div class="epic-number">Epic 5</div>
-            <h3>Website Intake and Automation</h3>
+            <div class="epic-number">Épic 5</div>
+            <h3>Intégration du site web et automatisation</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-017</span><span class="pill p0">P0</span></div><strong>Build website lead ingestion</strong><p>Intake website form submissions into CRM lead records and retain source attribution.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-018</span><span class="pill p0">P0</span></div><strong>Implement automatic lead confirmations</strong><p>Send prospect confirmation messages after qualifying lead capture.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-019</span><span class="pill p0">P0</span></div><strong>Implement internal lead and status alerts</strong><p>Alert staff for new inbound leads and important status changes.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-020</span><span class="pill p1">P1</span></div><strong>Implement follow-up sequences and inactivity reminders</strong><p>Automate follow-up actions based on stage, time, or inactivity.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-017</span><span class="pill p0">P0</span></div><strong>Construire l'intégration des prospects du site web</strong><p>Intégrer les soumissions de formulaires du site web dans les enregistrements de prospects CRM et conserver l'attribution de la source.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-018</span><span class="pill p0">P0</span></div><strong>Implémenter les confirmations automatiques des prospects</strong><p>Envoyer des messages de confirmation aux prospects après la capture de prospects qualifiés.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-019</span><span class="pill p0">P0</span></div><strong>Implémenter les alertes internes de prospects et de statuts</strong><p>Alerter le personnel pour les nouveaux prospects entrants et les changements de statut importants.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-020</span><span class="pill p1">P1</span></div><strong>Implémenter les séquences de relance et les rappels d'inactivité</strong><p>Automatiser les actions de relance basées sur l'étape, le temps ou l'inactivité.</p></div>
             </div>
           </article>
 
           <article class="epic">
-            <div class="epic-number">Epic 6</div>
-            <h3>Public Booking</h3>
+            <div class="epic-number">Épic 6</div>
+            <h3>Prise de rendez-vous publique</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-021</span><span class="pill p0">P0</span></div><strong>Model seller availability</strong><p>Define availability rules that public booking can validate against.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-022</span><span class="pill p0">P0</span></div><strong>Build public booking flow</strong><p>Allow customers to request or book appointments through a public interface.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-023</span><span class="pill p0">P0</span></div><strong>Sync bookings into CRM and internal calendar</strong><p>Create internal scheduling records and connect bookings to customer records.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-024</span><span class="pill p1">P1</span></div><strong>Notify staff about new or changed bookings</strong><p>Add booking-related notifications.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-021</span><span class="pill p0">P0</span></div><strong>Modéliser la disponibilité des vendeurs</strong><p>Définir les règles de disponibilité que la prise de rendez-vous publique peut valider.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-022</span><span class="pill p0">P0</span></div><strong>Construire le flux de prise de rendez-vous publique</strong><p>Permettre aux clients de demander ou de prendre des rendez-vous via une interface publique.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-023</span><span class="pill p0">P0</span></div><strong>Synchroniser les rendez-vous dans le CRM et le calendrier interne</strong><p>Créer des enregistrements de planification interne et connecter les rendez-vous aux enregistrements clients.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-024</span><span class="pill p1">P1</span></div><strong>Notifier le personnel des nouveaux rendez-vous ou des modifications</strong><p>Ajouter des notifications liées aux rendez-vous.</p></div>
             </div>
           </article>
 
           <article class="epic">
-            <div class="epic-number">Epic 7</div>
-            <h3>Billing Operations</h3>
+            <div class="epic-number">Épic 7</div>
+            <h3>Opérations de facturation</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-025</span><span class="pill p0">P0</span></div><strong>Build invoice model and interfaces</strong><p>Introduce invoice entities and user workflows.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-026</span><span class="pill p0">P0</span></div><strong>Implement quote-to-invoice conversion</strong><p>Create invoices from existing quote data.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-027</span><span class="pill p0">P0</span></div><strong>Add payment obligations and schedules</strong><p>Move from quote-only payment planning toward invoice payment obligations.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-028</span><span class="pill p0">P0</span></div><strong>Add payment tracking</strong><p>Record payments and compute payment state.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-029</span><span class="pill p1">P1</span></div><strong>Expose financial history in the client dossier</strong><p>Show quote, invoice, and payment history together in the customer record.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-025</span><span class="pill p0">P0</span></div><strong>Construire le modèle de factures et les interfaces</strong><p>Introduire les entités de factures et les flux de travail utilisateur.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-026</span><span class="pill p0">P0</span></div><strong>Implémenter la conversion devis-en-facture</strong><p>Créer des factures à partir des données de devis existantes.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-027</span><span class="pill p0">P0</span></div><strong>Ajouter les obligations de paiement et les échéanciers</strong><p>Passer de la planification de paiement uniquement dans les devis vers des obligations de paiement de factures.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-028</span><span class="pill p0">P0</span></div><strong>Ajouter le suivi des paiements</strong><p>Enregistrer les paiements et calculer l'état des paiements.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-029</span><span class="pill p1">P1</span></div><strong>Exposer l'historique financier dans le dossier client</strong><p>Afficher ensemble l'historique des devis, factures et paiements dans l'enregistrement client.</p></div>
             </div>
           </article>
 
           <article class="epic">
-            <div class="epic-number">Epic 8</div>
-            <h3>Quality, Cutover, and Release Readiness</h3>
+            <div class="epic-number">Épic 8</div>
+            <h3>Qualité, bascule et préparation au lancement</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-030</span><span class="pill p0">P0</span></div><strong>Add automated baseline coverage</strong><p>Cover auth and critical domain logic with automated tests.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-031</span><span class="pill p1">P1</span></div><strong>Add role-sensitive end-to-end smoke coverage</strong><p>Verify core workflows for relevant permission profiles.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-032</span><span class="pill p1">P1</span></div><strong>Prepare data migration and cutover checklist</strong><p>Document cutover, rollback, storage, and data migration concerns.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-030</span><span class="pill p0">P0</span></div><strong>Ajouter une couverture de référence automatisée</strong><p>Couvrir l'authentification et la logique de domaine critique avec des tests automatisés.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-031</span><span class="pill p1">P1</span></div><strong>Ajouter une couverture fonctionnelle sensible aux rôles</strong><p>Vérifier les flux principaux pour les profils de permissions pertinents.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-032</span><span class="pill p1">P1</span></div><strong>Préparer la liste de contrôle de migration des données et de bascule</strong><p>Documenter les préoccupations de bascule, de retour arrière, de stockage et de migration des données.</p></div>
             </div>
           </article>
         </div>

@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRM Milestones</title>
+    <title>Jalons CRM</title>
     <style>
       :root {
         --bg: #f6f1e8;
@@ -173,98 +173,98 @@
   </head>
   <body>
     <main class="page">
-      <nav class="nav" aria-label="Roadmap navigation">
-        <a class="nav-link" href="./index.html">Roadmap Home</a>
-        <a class="nav-link" href="./development-plan.html">Development Plan</a>
-        <a class="nav-link active" href="./milestones.html">Milestones</a>
-        <a class="nav-link" href="./task-backlog.html">Task Backlog</a>
+      <nav class="nav" aria-label="Navigation de la feuille de route">
+        <a class="nav-link" href="./index.html">Accueil</a>
+        <a class="nav-link" href="./development-plan.html">Plan de développement</a>
+        <a class="nav-link active" href="./milestones.html">Jalons</a>
+        <a class="nav-link" href="./task-backlog.html">Carnet de commandes</a>
       </nav>
 
       <section class="hero">
-        <span class="eyebrow">Roadmap</span>
-        <h1>CRM Milestones</h1>
+        <span class="eyebrow">Feuille de route</span>
+        <h1>Jalons CRM</h1>
         <p>
-          These milestones reflect the revised roadmap: start from the real CRM already running on
-          the VPS, bring that product under repository control, then align and extend it toward the
-          final Aqua Plus target.
+          Ces jalons reflètent la feuille de route révisée : partir du vrai CRM déjà en production sur
+          le VPS, placer ce produit sous contrôle du dépôt, puis l'aligner et l'étendre vers
+          la cible finale Aqua Plus.
         </p>
       </section>
 
       <section class="panel">
-        <h2>Milestone Sequence</h2>
+        <h2>Séquence des jalons</h2>
         <div class="grid">
           <article class="milestone">
-            <div class="number">Milestone 1</div>
-            <h3>Production Baseline Captured</h3>
-            <p>The VPS CRM is treated as the real baseline and its modules, data structures, storage dependencies, and auth behavior are documented.</p>
-            <strong>Definition of done</strong>
+            <div class="number">Jalon 1</div>
+            <h3>Référence de production capturée</h3>
+            <p>Le CRM du VPS est traité comme la vraie référence et ses modules, structures de données, dépendances de stockage et comportement d'authentification sont documentés.</p>
+            <strong>Définition de terminé</strong>
             <ul>
-              <li>Current VPS modules are inventoried and confirmed.</li>
-              <li>Major tables, policies, RPCs, and storage buckets are mapped.</li>
-              <li>Migration assumptions are documented.</li>
+              <li>Les modules VPS actuels sont inventoriés et confirmés.</li>
+              <li>Les principales tables, politiques, RPCs et buckets de stockage sont cartographiés.</li>
+              <li>Les hypothèses de migration sont documentées.</li>
             </ul>
           </article>
 
           <article class="milestone">
-            <div class="number">Milestone 2</div>
-            <h3>Repository Owns the Current CRM</h3>
-            <p>The real CRM baseline is moved into this repository or faithfully reproduced from it without material regression.</p>
-            <strong>Included modules</strong>
+            <div class="number">Jalon 2</div>
+            <h3>Le dépôt possède le CRM actuel</h3>
+            <p>La vraie référence CRM est déplacée dans ce dépôt ou fidèlement reproduite depuis celui-ci sans régression significative.</p>
+            <strong>Modules inclus</strong>
             <ul>
-              <li>Authentication, roles, permissions, dashboard, leads, activities, pipeline</li>
-              <li>Contacts view, calendar, quotes, templates, settings, and admin</li>
+              <li>Authentification, rôles, permissions, tableau de bord, prospects, activités, pipeline</li>
+              <li>Vue contacts, calendrier, devis, modèles, paramètres et administration</li>
             </ul>
           </article>
 
           <article class="milestone">
-            <div class="number">Milestone 3</div>
-            <h3>Aqua Plus Alignment</h3>
-            <p>The CRM reflects Aqua Plus terminology, service taxonomy, stage model, staff profiles, and lead source handling.</p>
+            <div class="number">Jalon 3</div>
+            <h3>Alignement Aqua Plus</h3>
+            <p>Le CRM reflète la terminologie, la taxonomie des services, le modèle d'étapes, les profils de personnel et la gestion de la source des prospects d'Aqua Plus.</p>
           </article>
 
           <article class="milestone">
-            <div class="number">Milestone 4</div>
-            <h3>Customer Dossier</h3>
-            <p>The product moves beyond isolated module records into one coherent client history spanning the operational lifecycle.</p>
+            <div class="number">Jalon 4</div>
+            <h3>Dossier client</h3>
+            <p>Le produit va au-delà des enregistrements de modules isolés vers un historique client cohérent couvrant l'ensemble du cycle de vie opérationnel.</p>
           </article>
 
           <article class="milestone">
-            <div class="number">Milestone 5</div>
-            <h3>Intake and Automation Layer</h3>
-            <p>Website-originated work enters the CRM automatically and triggers confirmations, internal alerts, and follow-up support behavior.</p>
+            <div class="number">Jalon 5</div>
+            <h3>Couche d'intégration et d'automatisation</h3>
+            <p>Le travail provenant du site web entre automatiquement dans le CRM et déclenche des confirmations, des alertes internes et un comportement de relance.</p>
           </article>
 
           <article class="milestone">
-            <div class="number">Milestone 6</div>
-            <h3>Booking Integration</h3>
-            <p>Public booking is connected to seller availability, internal scheduling, and customer records.</p>
+            <div class="number">Jalon 6</div>
+            <h3>Intégration de la prise de rendez-vous</h3>
+            <p>La prise de rendez-vous publique est connectée à la disponibilité des vendeurs, à la planification interne et aux enregistrements clients.</p>
           </article>
 
           <article class="milestone">
-            <div class="number">Milestone 7</div>
-            <h3>Billing Operations</h3>
-            <p>Invoices, quote-to-invoice conversion, payment obligations, payment tracking, and financial history become part of the CRM.</p>
+            <div class="number">Jalon 7</div>
+            <h3>Opérations de facturation</h3>
+            <p>Les factures, la conversion devis-en-facture, les obligations de paiement, le suivi des paiements et l'historique financier font partie du CRM.</p>
           </article>
 
           <article class="milestone">
-            <div class="number">Milestone 8</div>
-            <h3>Cutover Readiness</h3>
-            <p>The migrated and extended CRM is release-ready from this repository with verification, migration validation, and rollback planning.</p>
+            <div class="number">Jalon 8</div>
+            <h3>Préparation à la bascule</h3>
+            <p>Le CRM migré et étendu est prêt au lancement depuis ce dépôt avec vérification, validation de la migration et planification du retour arrière.</p>
           </article>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Recommended Release Order</h2>
+        <h2>Ordre de livraison recommandé</h2>
         <div class="release-list">
-          <div><strong>1.</strong> Production baseline captured</div>
-          <div><strong>2.</strong> Repository owns the current CRM</div>
-          <div><strong>3.</strong> Aqua Plus alignment</div>
-          <div><strong>4.</strong> Customer dossier</div>
-          <div><strong>5.</strong> Intake and automation layer</div>
-          <div><strong>6.</strong> Booking integration</div>
-          <div><strong>7.</strong> Billing operations</div>
-          <div><strong>8.</strong> Cutover readiness</div>
+          <div><strong>1.</strong> Référence de production capturée</div>
+          <div><strong>2.</strong> Le dépôt possède le CRM actuel</div>
+          <div><strong>3.</strong> Alignement Aqua Plus</div>
+          <div><strong>4.</strong> Dossier client</div>
+          <div><strong>5.</strong> Couche d'intégration et d'automatisation</div>
+          <div><strong>6.</strong> Intégration de la prise de rendez-vous</div>
+          <div><strong>7.</strong> Opérations de facturation</div>
+          <div><strong>8.</strong> Préparation à la bascule</div>
         </div>
       </section>
     </main>

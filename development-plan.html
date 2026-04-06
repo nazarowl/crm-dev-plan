@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRM Development Plan</title>
+    <title>Plan de développement CRM</title>
     <style>
       :root {
         --bg: #f6f1e8;
@@ -272,107 +272,107 @@
   </head>
   <body>
     <main class="page">
-      <nav class="nav" aria-label="Roadmap navigation">
-        <a class="nav-link" href="./index.html">Roadmap Home</a>
-        <a class="nav-link active" href="./development-plan.html">Development Plan</a>
-        <a class="nav-link" href="./milestones.html">Milestones</a>
-        <a class="nav-link" href="./task-backlog.html">Task Backlog</a>
+      <nav class="nav" aria-label="Navigation de la feuille de route">
+        <a class="nav-link" href="./index.html">Accueil</a>
+        <a class="nav-link active" href="./development-plan.html">Plan de développement</a>
+        <a class="nav-link" href="./milestones.html">Jalons</a>
+        <a class="nav-link" href="./task-backlog.html">Carnet de commandes</a>
       </nav>
 
       <section class="hero">
-        <span class="eyebrow">Updated April 5, 2026</span>
-        <h1>CRM Development Plan</h1>
+        <span class="eyebrow">Mis à jour le 5 avril 2026</span>
+        <h1>Plan de développement CRM</h1>
         <p>
-          This plan replaces the old scaffold-first roadmap. The real starting point is the
-          deployed CRM already running on the VPS, and the job is now to preserve, migrate,
-          align, and extend that product until it matches the final Aqua Plus target.
+          Ce plan remplace l'ancienne feuille de route basée sur le squelette. Le vrai point de départ est
+          le CRM déjà déployé sur le VPS, et le travail consiste désormais à préserver, migrer,
+          aligner et étendre ce produit jusqu'à ce qu'il corresponde à la cible finale Aqua Plus.
         </p>
 
         <div class="stats">
           <div class="stat">
-            <strong>Live Product</strong>
-            React + Vite + Supabase CRM already exists on the VPS at <code>/var/www/crm</code>.
+            <strong>Produit en production</strong>
+            Un CRM React + Vite + Supabase existe déjà sur le VPS à <code>/var/www/crm</code>.
           </div>
           <div class="stat">
-            <strong>Local Repo</strong>
-            The current <code>apps/web</code> and <code>apps/api</code> remain scaffold-level only.
+            <strong>Dépôt local</strong>
+            Les dossiers <code>apps/web</code> et <code>apps/api</code> actuels restent au niveau d'un squelette uniquement.
           </div>
           <div class="stat">
-            <strong>Main Task</strong>
-            Stop planning like a blank-slate build. Plan from the real shipped system.
+            <strong>Tâche principale</strong>
+            Arrêter de planifier comme une construction à partir de zéro. Planifier depuis le vrai système livré.
           </div>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Planning Baseline</h2>
+        <h2>Base de planification</h2>
         <p>
-          The final target is defined in <code>docs/product/final-crm-spec.md</code>. The
-          implementation baseline is the deployed CRM inspected on the VPS, not the scaffold in
-          this repository.
+          La cible finale est définie dans <code>docs/product/final-crm-spec.md</code>. La
+          référence d'implémentation est le CRM déployé sur le VPS, pas le squelette dans
+          ce dépôt.
         </p>
         <ul>
-          <li>Use the deployed CRM as the functional reference.</li>
-          <li>Preserve useful working behavior before broadening scope.</li>
-          <li>Keep excluded items out of scope: e-commerce, inventory, loyalty, promo codes, and recommendation tooling.</li>
+          <li>Utiliser le CRM déployé comme référence fonctionnelle.</li>
+          <li>Préserver le comportement utile existant avant d'élargir le périmètre.</li>
+          <li>Maintenir les éléments exclus hors périmètre : e-commerce, inventaire, fidélité, codes promo et outils de recommandation.</li>
         </ul>
       </section>
 
       <section class="panel">
-        <h2>Reality Check</h2>
+        <h2>État des lieux</h2>
         <div class="triage">
           <article class="triage-card good">
-            <div class="tag good">Already Implemented</div>
-            <h3>Operational Today</h3>
+            <div class="tag good">Déjà implémenté</div>
+            <h3>Opérationnel aujourd'hui</h3>
             <ul>
-              <li>Authentication</li>
-              <li>Roles and permissions</li>
-              <li>Dashboard</li>
-              <li>Leads and activities</li>
+              <li>Authentification</li>
+              <li>Rôles et permissions</li>
+              <li>Tableau de bord</li>
+              <li>Prospects et activités</li>
               <li>Pipeline</li>
-              <li>Contacts view</li>
-              <li>Internal calendar</li>
-              <li>Quotes with templates, PDF, signatures, taxes, and payment schedules</li>
-              <li>Company settings and admin user management</li>
+              <li>Vue contacts</li>
+              <li>Calendrier interne</li>
+              <li>Devis avec modèles, PDF, signatures, taxes et échéanciers de paiement</li>
+              <li>Paramètres de l'entreprise et gestion des utilisateurs admin</li>
             </ul>
           </article>
 
           <article class="triage-card partial">
-            <div class="tag partial">Partially Done</div>
-            <h3>Needs Alignment</h3>
+            <div class="tag partial">Partiellement fait</div>
+            <h3>Nécessite un alignement</h3>
             <ul>
-              <li>Pipeline stages are not yet the final Aqua Plus workflow.</li>
-              <li>Service taxonomy is still generic.</li>
-              <li>Contacts are still lead-derived rather than a deliberate customer model.</li>
-              <li>Role model is still generic: <code>owner</code>, <code>admin</code>, <code>user</code>.</li>
-              <li>Quote payment schedules exist, but true billing operations do not.</li>
+              <li>Les étapes du pipeline ne correspondent pas encore au flux de travail final d'Aqua Plus.</li>
+              <li>La taxonomie des services est encore générique.</li>
+              <li>Les contacts sont encore dérivés des prospects plutôt qu'un modèle client délibéré.</li>
+              <li>Le modèle de rôles est encore générique : <code>owner</code>, <code>admin</code>, <code>user</code>.</li>
+              <li>Les échéanciers de paiement des devis existent, mais les opérations de facturation réelles n'existent pas.</li>
             </ul>
           </article>
 
           <article class="triage-card gap">
-            <div class="tag gap">Still Missing</div>
-            <h3>Not Built Yet</h3>
+            <div class="tag gap">Encore manquant</div>
+            <h3>Pas encore construit</h3>
             <ul>
-              <li>Website lead intake</li>
-              <li>Lead source tracking</li>
-              <li>Automations and notifications</li>
-              <li>Public booking with seller availability</li>
-              <li>Invoice generation and invoice records</li>
-              <li>Payment tracking beyond quote planning</li>
-              <li>Unified client dossier across the full lifecycle</li>
+              <li>Intégration des prospects du site web</li>
+              <li>Suivi de la source des prospects</li>
+              <li>Automatisations et notifications</li>
+              <li>Prise de rendez-vous publique avec disponibilité des vendeurs</li>
+              <li>Génération de factures et enregistrements de factures</li>
+              <li>Suivi des paiements au-delà de la planification des devis</li>
+              <li>Dossier client unifié sur l'ensemble du cycle de vie</li>
             </ul>
           </article>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Delivery Strategy</h2>
+        <h2>Stratégie de livraison</h2>
         <div class="ordered">
-          <div><strong>1.</strong> Capture and stabilize the real existing product baseline.</div>
-          <div><strong>2.</strong> Bring that baseline into this repository without regression.</div>
-          <div><strong>3.</strong> Align the existing modules to Aqua Plus terminology and workflow.</div>
-          <div><strong>4.</strong> Add the missing operational modules.</div>
-          <div><strong>5.</strong> Harden, cut over, and run the system from this repository.</div>
+          <div><strong>1.</strong> Capturer et stabiliser la vraie référence produit existante.</div>
+          <div><strong>2.</strong> Intégrer cette référence dans ce dépôt sans régression.</div>
+          <div><strong>3.</strong> Aligner les modules existants sur la terminologie et le flux de travail Aqua Plus.</div>
+          <div><strong>4.</strong> Ajouter les modules opérationnels manquants.</div>
+          <div><strong>5.</strong> Durcir, basculer et exploiter le système depuis ce dépôt.</div>
         </div>
       </section>
 
@@ -381,106 +381,106 @@
         <div class="phases">
           <article class="phase">
             <div class="phase-number">Phase 1</div>
-            <h3>Product Baseline Capture and Repository Alignment</h3>
+            <h3>Capture de la référence produit et alignement du dépôt</h3>
             <p>
-              Treat the VPS CRM as the real source product. Document its modules, data model,
-              Supabase dependencies, and deployment constraints, then define how that product
-              becomes repo-managed code instead of a separate server-side codebase.
+              Traiter le CRM du VPS comme le vrai produit source. Documenter ses modules, son modèle de données,
+              ses dépendances Supabase et ses contraintes de déploiement, puis définir comment ce produit
+              devient du code géré par le dépôt plutôt qu'une base de code serveur distincte.
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 2</div>
-            <h3>Core Product Migration Without Regression</h3>
+            <h3>Migration du produit principal sans régression</h3>
             <p>
-              Import or reproduce the deployed CRM inside this repo and preserve the current
-              working modules: auth, roles, permissions, leads, activities, pipeline, calendar,
-              quotes, templates, settings, attachments, and admin behavior.
+              Importer ou reproduire le CRM déployé dans ce dépôt et préserver les modules
+              actuellement fonctionnels : authentification, rôles, permissions, prospects, activités, pipeline, calendrier,
+              devis, modèles, paramètres, pièces jointes et comportement d'administration.
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 3</div>
-            <h3>Aqua Plus Workflow Alignment</h3>
+            <h3>Alignement sur le flux de travail Aqua Plus</h3>
             <p>
-              Replace the current generic CRM language with the real Aqua Plus operating model:
-              stages, service types, contact categorization, role profiles, and lead source
-              visibility.
+              Remplacer le langage CRM générique actuel par le vrai modèle opérationnel Aqua Plus :
+              étapes, types de services, catégorisation des contacts, profils de rôles et visibilité
+              de la source des prospects.
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 4</div>
-            <h3>Customer Record and Dossier Consolidation</h3>
+            <h3>Consolidation du dossier et de l'enregistrement client</h3>
             <p>
-              Resolve the current lead-versus-contact ambiguity and build a unified customer record
-              that can hold long-term commercial history across opportunities, activities, quotes,
-              bookings, invoices, and payments.
+              Résoudre l'ambiguïté actuelle prospect-versus-contact et construire un enregistrement client unifié
+              capable de contenir l'historique commercial à long terme couvrant opportunités, activités, devis,
+              rendez-vous, factures et paiements.
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 5</div>
-            <h3>Website Intake, Automations, and Notifications</h3>
+            <h3>Intégration du site web, automatisations et notifications</h3>
             <p>
-              Add website lead capture, source attribution, automatic confirmations, internal lead
-              alerts, status notifications, and stage or inactivity-based follow-up logic.
+              Ajouter la capture de prospects depuis le site web, l'attribution de la source, les confirmations automatiques, les alertes
+              internes de prospects, les notifications de statut et la logique de relance basée sur l'étape ou l'inactivité.
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 6</div>
-            <h3>Public Booking and Scheduling Integration</h3>
+            <h3>Prise de rendez-vous publique et intégration de la planification</h3>
             <p>
-              Add seller availability, public booking, booking validation, internal calendar sync,
-              CRM record linking, and staff booking notifications.
+              Ajouter la disponibilité des vendeurs, la prise de rendez-vous publique, la validation des rendez-vous, la synchronisation du calendrier interne,
+              la liaison des enregistrements CRM et les notifications de rendez-vous au personnel.
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 7</div>
-            <h3>Invoicing and Payment Operations</h3>
+            <h3>Facturation et opérations de paiement</h3>
             <p>
-              Extend the existing quote engine into a complete billing workflow with invoice
-              generation, quote-to-invoice conversion, payment obligations, payment records, and
-              due-date visibility from the customer dossier.
+              Étendre le moteur de devis existant en un flux de facturation complet avec
+              génération de factures, conversion devis-en-facture, obligations de paiement, enregistrements de paiements et
+              visibilité des dates d'échéance depuis le dossier client.
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 8</div>
-            <h3>Release Hardening and Cutover</h3>
+            <h3>Durcissement et bascule vers la production</h3>
             <p>
-              Add automated verification, migration checks, rollback planning, and deployment
-              documentation so the production CRM can be managed from this repository with a
-              credible release path.
+              Ajouter la vérification automatisée, les contrôles de migration, la planification du retour arrière et la documentation
+              de déploiement pour que le CRM en production puisse être géré depuis ce dépôt avec
+              un chemin de livraison crédible.
             </p>
           </article>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Main Risks</h2>
+        <h2>Principaux risques</h2>
         <ul>
-          <li>The old roadmap overstates greenfield work and understates migration work.</li>
-          <li>Quotes are one of the highest-risk areas because they combine calculations, templates, PDFs, signatures, settings, and storage.</li>
-          <li>The customer/contact model needs an explicit decision before billing and booking expand further.</li>
-          <li>Changing stages and roles too early can create operational churn during migration.</li>
-          <li>Automations should not ship until event ownership and audit behavior are clear.</li>
+          <li>L'ancienne feuille de route surestime le travail entièrement nouveau et sous-estime le travail de migration.</li>
+          <li>Les devis sont l'un des domaines à plus haut risque car ils combinent calculs, modèles, PDFs, signatures, paramètres et stockage.</li>
+          <li>Le modèle client/contact nécessite une décision explicite avant que la facturation et la prise de rendez-vous ne s'élargissent davantage.</li>
+          <li>Modifier les étapes et les rôles trop tôt peut créer des perturbations opérationnelles pendant la migration.</li>
+          <li>Les automatisations ne doivent pas être livrées tant que la propriété des événements et le comportement d'audit ne sont pas clairs.</li>
         </ul>
       </section>
 
       <section class="panel">
-        <h2>Exit Criteria</h2>
+        <h2>Critères de sortie</h2>
         <div class="callout">
           <ul>
-            <li>The repository is based on the real production CRM rather than the scaffold.</li>
-            <li>Current implemented modules are preserved without regression.</li>
-            <li>Aqua Plus terminology, stages, services, and role profiles are reflected in the product.</li>
-            <li>Website-originated leads enter CRM workflows automatically.</li>
-            <li>Notifications and follow-up automations are operational and auditable.</li>
-            <li>Public booking and internal scheduling are synchronized.</li>
-            <li>Invoices and payment tracking are visible from the client dossier.</li>
+            <li>Le dépôt est basé sur le vrai CRM de production plutôt que sur le squelette.</li>
+            <li>Les modules implémentés actuels sont préservés sans régression.</li>
+            <li>La terminologie, les étapes, les services et les profils de rôles d'Aqua Plus sont reflétés dans le produit.</li>
+            <li>Les prospects issus du site web entrent automatiquement dans les flux CRM.</li>
+            <li>Les notifications et les automatisations de relance sont opérationnelles et auditables.</li>
+            <li>La prise de rendez-vous publique et la planification interne sont synchronisées.</li>
+            <li>Les factures et le suivi des paiements sont visibles depuis le dossier client.</li>
           </ul>
         </div>
       </section>
