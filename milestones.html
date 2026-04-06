@@ -194,25 +194,25 @@
         <h2>Séquence des jalons</h2>
         <div class="grid">
           <article class="milestone">
-            <div class="number">Jalon 1</div>
+            <div class="number">Jalon 1 — essentiellement terminé</div>
             <h3>Référence de production capturée</h3>
-            <p>Le CRM du VPS est traité comme la vraie référence et ses modules, structures de données, dépendances de stockage et comportement d'authentification sont documentés.</p>
+            <p>L'audit du 3 avril et les décisions d'architecture du 6 avril couvrent ce jalon. Stack confirmé : React + Supabase, import direct.</p>
             <strong>Définition de terminé</strong>
             <ul>
-              <li>Les modules VPS actuels sont inventoriés et confirmés.</li>
-              <li>Les principales tables, politiques, RPCs et buckets de stockage sont cartographiés.</li>
-              <li>Les hypothèses de migration sont documentées.</li>
+              <li>Les modules VPS actuels sont inventoriés et confirmés. ✓</li>
+              <li>Les principales tables, politiques, RPCs et buckets de stockage sont cartographiés. ✓</li>
+              <li>Décisions d'architecture confirmées : React reste, Supabase reste, contacts = prospects catégorisés. ✓</li>
             </ul>
           </article>
 
           <article class="milestone">
             <div class="number">Jalon 2</div>
             <h3>Le dépôt possède le CRM actuel</h3>
-            <p>La vraie référence CRM est déplacée dans ce dépôt ou fidèlement reproduite depuis celui-ci sans régression significative.</p>
+            <p>Le code React du VPS est importé dans <code>apps/web</code> en remplacement du squelette Vue. L'application build, se connecte à Supabase, et tous les modules fonctionnent.</p>
             <strong>Modules inclus</strong>
             <ul>
-              <li>Authentification, rôles, permissions, tableau de bord, prospects, activités, pipeline</li>
-              <li>Vue contacts, calendrier, devis, modèles, paramètres et administration</li>
+              <li>Authentification (Supabase Auth), rôles, permissions, tableau de bord, prospects, activités, pipeline</li>
+              <li>Vue contacts, calendrier, devis (PDF, signatures, taxes), modèles, paramètres et administration</li>
             </ul>
           </article>
 
@@ -224,8 +224,8 @@
 
           <article class="milestone">
             <div class="number">Jalon 4</div>
-            <h3>Dossier client</h3>
-            <p>Le produit va au-delà des enregistrements de modules isolés vers un historique client cohérent couvrant l'ensemble du cycle de vie opérationnel.</p>
+            <h3>Catégorisation des contacts et dossier client</h3>
+            <p>Les prospects reçoivent un champ de catégorie (<code>client</code>, <code>fournisseur</code>, <code>employé</code>). La page contacts est divisée par catégorie. Un dossier client unifié couvre l'ensemble du cycle de vie opérationnel.</p>
           </article>
 
           <article class="milestone">
@@ -260,7 +260,7 @@
           <div><strong>1.</strong> Référence de production capturée</div>
           <div><strong>2.</strong> Le dépôt possède le CRM actuel</div>
           <div><strong>3.</strong> Alignement Aqua Plus</div>
-          <div><strong>4.</strong> Dossier client</div>
+          <div><strong>4.</strong> Catégorisation des contacts et dossier client</div>
           <div><strong>5.</strong> Couche d'intégration et d'automatisation</div>
           <div><strong>6.</strong> Intégration de la prise de rendez-vous</div>
           <div><strong>7.</strong> Opérations de facturation</div>

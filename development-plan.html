@@ -294,26 +294,36 @@
             Un CRM React + Vite + Supabase existe déjà sur le VPS à <code>/var/www/crm</code>.
           </div>
           <div class="stat">
-            <strong>Dépôt local</strong>
-            Les dossiers <code>apps/web</code> et <code>apps/api</code> actuels restent au niveau d'un squelette uniquement.
+            <strong>Stack confirmé</strong>
+            React reste. Supabase reste. Le squelette Vue sera remplacé par le code React du VPS.
           </div>
           <div class="stat">
             <strong>Tâche principale</strong>
-            Arrêter de planifier comme une construction à partir de zéro. Planifier depuis le vrai système livré.
+            Importer le code React du VPS dans le dépôt, puis aligner et étendre.
           </div>
         </div>
+      </section>
+
+      <section class="panel">
+        <h2>Décisions d'architecture (6 avril 2026)</h2>
+        <ul>
+          <li><strong>React reste.</strong> Le code React du VPS est importé dans <code>apps/web</code>. Le squelette Vue est supprimé.</li>
+          <li><strong>Supabase reste.</strong> Auth, Storage, PostgREST et Postgres restent en place comme couche backend principale.</li>
+          <li><strong>Contacts = prospects catégorisés.</strong> Pas d'entité séparée. Un champ <code>category</code> est ajouté : <code>client</code>, <code>fournisseur</code>, <code>employé</code>.</li>
+          <li><strong>Express API réduit.</strong> <code>apps/api</code> est réservé aux tâches côté serveur : webhooks, jobs, automatisations, intégrations.</li>
+        </ul>
       </section>
 
       <section class="panel">
         <h2>Base de planification</h2>
         <p>
           La cible finale est définie dans <code>docs/product/final-crm-spec.md</code>. La
-          référence d'implémentation est le CRM déployé sur le VPS, pas le squelette dans
-          ce dépôt.
+          référence d'implémentation est le CRM React déployé sur le VPS.
         </p>
         <ul>
-          <li>Utiliser le CRM déployé comme référence fonctionnelle.</li>
+          <li>Importer le code React tel quel depuis le VPS.</li>
           <li>Préserver le comportement utile existant avant d'élargir le périmètre.</li>
+          <li>Supabase gère le CRUD — l'API Express ne gère que les tâches côté serveur.</li>
           <li>Maintenir les éléments exclus hors périmètre : e-commerce, inventaire, fidélité, codes promo et outils de recommandation.</li>
         </ul>
       </section>
@@ -343,7 +353,7 @@
             <ul>
               <li>Les étapes du pipeline ne correspondent pas encore au flux de travail final d'Aqua Plus.</li>
               <li>La taxonomie des services est encore générique.</li>
-              <li>Les contacts sont encore dérivés des prospects plutôt qu'un modèle client délibéré.</li>
+              <li>Les contacts n'ont pas encore de catégorisation (<code>client</code>, <code>fournisseur</code>, <code>employé</code>).</li>
               <li>Le modèle de rôles est encore générique : <code>owner</code>, <code>admin</code>, <code>user</code>.</li>
               <li>Les échéanciers de paiement des devis existent, mais les opérations de facturation réelles n'existent pas.</li>
             </ul>
@@ -368,10 +378,10 @@
       <section class="panel">
         <h2>Stratégie de livraison</h2>
         <div class="ordered">
-          <div><strong>1.</strong> Capturer et stabiliser la vraie référence produit existante.</div>
-          <div><strong>2.</strong> Intégrer cette référence dans ce dépôt sans régression.</div>
+          <div><strong>1.</strong> Capturer la référence produit (essentiellement terminé).</div>
+          <div><strong>2.</strong> Importer le code React du VPS dans le dépôt sans régression.</div>
           <div><strong>3.</strong> Aligner les modules existants sur la terminologie et le flux de travail Aqua Plus.</div>
-          <div><strong>4.</strong> Ajouter les modules opérationnels manquants.</div>
+          <div><strong>4.</strong> Ajouter la catégorisation des contacts et les modules opérationnels manquants.</div>
           <div><strong>5.</strong> Durcir, basculer et exploiter le système depuis ce dépôt.</div>
         </div>
       </section>
@@ -380,22 +390,22 @@
         <h2>Phases</h2>
         <div class="phases">
           <article class="phase">
-            <div class="phase-number">Phase 1</div>
+            <div class="phase-number">Phase 1 — essentiellement terminée</div>
             <h3>Capture de la référence produit et alignement du dépôt</h3>
             <p>
-              Traiter le CRM du VPS comme le vrai produit source. Documenter ses modules, son modèle de données,
-              ses dépendances Supabase et ses contraintes de déploiement, puis définir comment ce produit
-              devient du code géré par le dépôt plutôt qu'une base de code serveur distincte.
+              L'audit du 3 avril et les décisions d'architecture du 6 avril couvrent cette phase.
+              Le stack est confirmé (React + Supabase), la stratégie d'adoption est définie (import direct).
             </p>
           </article>
 
           <article class="phase">
             <div class="phase-number">Phase 2</div>
-            <h3>Migration du produit principal sans régression</h3>
+            <h3>Import du code React dans le dépôt sans régression</h3>
             <p>
-              Importer ou reproduire le CRM déployé dans ce dépôt et préserver les modules
-              actuellement fonctionnels : authentification, rôles, permissions, prospects, activités, pipeline, calendrier,
-              devis, modèles, paramètres, pièces jointes et comportement d'administration.
+              Copier le code React de <code>/var/www/crm</code> dans <code>apps/web</code>, supprimer le squelette Vue,
+              configurer les variables d'environnement Supabase, vérifier que le build fonctionne et que tous les
+              modules existants sont opérationnels. Configurer <code>apps/api</code> comme service Express léger
+              pour les futures tâches côté serveur.
             </p>
           </article>
 
@@ -411,11 +421,11 @@
 
           <article class="phase">
             <div class="phase-number">Phase 4</div>
-            <h3>Consolidation du dossier et de l'enregistrement client</h3>
+            <h3>Catégorisation des contacts et dossier client</h3>
             <p>
-              Résoudre l'ambiguïté actuelle prospect-versus-contact et construire un enregistrement client unifié
-              capable de contenir l'historique commercial à long terme couvrant opportunités, activités, devis,
-              rendez-vous, factures et paiements.
+              Ajouter un champ de catégorie aux prospects (<code>client</code>, <code>fournisseur</code>, <code>employé</code>),
+              diviser la page contacts par catégorie, et construire un dossier client unifié
+              couvrant l'historique commercial complet.
             </p>
           </article>
 
@@ -462,11 +472,11 @@
       <section class="panel">
         <h2>Principaux risques</h2>
         <ul>
-          <li>L'ancienne feuille de route surestime le travail entièrement nouveau et sous-estime le travail de migration.</li>
+          <li>L'import du code React du VPS peut nécessiter des ajustements de chemins, de variables d'environnement ou de dépendances non documentées.</li>
           <li>Les devis sont l'un des domaines à plus haut risque car ils combinent calculs, modèles, PDFs, signatures, paramètres et stockage.</li>
-          <li>Le modèle client/contact nécessite une décision explicite avant que la facturation et la prise de rendez-vous ne s'élargissent davantage.</li>
           <li>Modifier les étapes et les rôles trop tôt peut créer des perturbations opérationnelles pendant la migration.</li>
           <li>Les automatisations ne doivent pas être livrées tant que la propriété des événements et le comportement d'audit ne sont pas clairs.</li>
+          <li>L'API Express doit rester légère pour ne pas dupliquer les responsabilités de Supabase.</li>
         </ul>
       </section>
 

@@ -272,8 +272,8 @@
             Tâches
           </div>
           <div class="stat">
-            <strong>Chemin critique</strong>
-            Migration d'abord, puis alignement, puis les nouveaux flux.
+            <strong>Stack confirmé</strong>
+            React + Supabase. Import du VPS, puis alignement, puis les nouveaux flux.
           </div>
         </div>
       </section>
@@ -299,7 +299,7 @@
             <div class="tasks">
               <div class="task"><div class="task-top"><span class="task-id">CRM-001</span><span class="pill p0">P0</span></div><strong>Inventorier les modules du CRM déployé</strong><p>Confirmer les modules implémentés, les routes, les hooks, l'utilisation du stockage et les flux appuyés par la base de données dans la base de code du VPS.</p></div>
               <div class="task"><div class="task-top"><span class="task-id">CRM-002</span><span class="pill p0">P0</span></div><strong>Cartographier les dépendances des données de production</strong><p>Documenter les tables, énumérations, politiques, RPCs, buckets de stockage et effets de bord notables.</p></div>
-              <div class="task"><div class="task-top"><span class="task-id">CRM-003</span><span class="pill p0">P0</span></div><strong>Définir la stratégie d'adoption du dépôt</strong><p>Décider comment le CRM du VPS devient du code géré par le dépôt et préserver les contraintes de déploiement.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-003</span><span class="pill p0">P0 — décidé</span></div><strong>Définir la stratégie d'adoption du dépôt</strong><p>Décidé le 6 avril 2026 : React reste, Supabase reste, import direct du code VPS. Express API réservé aux tâches côté serveur. Contacts = prospects catégorisés.</p></div>
             </div>
           </article>
 
@@ -307,7 +307,7 @@
             <div class="epic-number">Épic 2</div>
             <h3>Adoption du CRM existant dans le dépôt</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-004</span><span class="pill p0">P0</span></div><strong>Remplacer les hypothèses du squelette par la vraie structure applicative</strong><p>Restructurer le dépôt autour du vrai produit plutôt que du squelette de remplacement.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-004</span><span class="pill p0">P0</span></div><strong>Importer le code React du VPS dans le dépôt</strong><p>Copier le code React de <code>/var/www/crm</code> dans <code>apps/web</code>, supprimer le squelette Vue, configurer les variables Supabase, vérifier que le build fonctionne.</p></div>
               <div class="task"><div class="task-top"><span class="task-id">CRM-005</span><span class="pill p0">P0</span></div><strong>Migrer la référence d'authentification et de contrôle d'accès</strong><p>Préserver l'authentification, les vérifications de rôles, le comportement de la matrice de permissions et les restrictions d'administration.</p></div>
               <div class="task"><div class="task-top"><span class="task-id">CRM-006</span><span class="pill p0">P0</span></div><strong>Migrer les modules opérationnels actuels sans régression</strong><p>Préserver le tableau de bord, les prospects, les activités, le pipeline, la vue contacts, le calendrier, les devis, les modèles, les paramètres et les modules d'administration.</p></div>
               <div class="task"><div class="task-top"><span class="task-id">CRM-007</span><span class="pill p0">P0</span></div><strong>Préserver les flux de pièces jointes, de stockage et de documents</strong><p>Conserver les pièces jointes des prospects, les signatures, les logos et le comportement lié aux PDF des devis.</p></div>
@@ -329,9 +329,9 @@
 
           <article class="epic">
             <div class="epic-number">Épic 4</div>
-            <h3>Dossier et enregistrement client</h3>
+            <h3>Catégorisation des contacts et dossier client</h3>
             <div class="tasks">
-              <div class="task"><div class="task-top"><span class="task-id">CRM-014</span><span class="pill p0">P0</span></div><strong>Décider du futur modèle de contacts</strong><p>Choisir si les contacts restent dérivés des prospects ou deviennent une entité séparée.</p></div>
+              <div class="task"><div class="task-top"><span class="task-id">CRM-014</span><span class="pill p0">P0 — décidé</span></div><strong>Ajouter la catégorisation des contacts</strong><p>Décidé le 6 avril 2026 : les contacts restent des prospects. Ajouter un champ <code>category</code> (<code>client</code>, <code>fournisseur</code>, <code>employé</code>) et diviser la page contacts par catégorie.</p></div>
               <div class="task"><div class="task-top"><span class="task-id">CRM-015</span><span class="pill p0">P0</span></div><strong>Construire le dossier client unifié</strong><p>Afficher un enregistrement client unique couvrant l'historique des prospects, activités, opportunités, calendrier et devis.</p></div>
               <div class="task"><div class="task-top"><span class="task-id">CRM-016</span><span class="pill p1">P1</span></div><strong>Exposer l'historique commercial inter-modules</strong><p>Préparer le dossier pour absorber les factures, paiements et rendez-vous ultérieurement.</p></div>
             </div>
